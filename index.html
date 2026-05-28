@@ -235,11 +235,11 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
   <div class="nutri-card">
     <div class="nutri-title">Objectifs caloriques</div>
     <div class="macro-grid">
-      <div class="macro-block"><div class="macro-val">2600</div><div class="macro-unit">kcal</div><div class="macro-lbl">Calories</div></div>
-      <div class="macro-block"><div class="macro-val">130</div><div class="macro-unit">g</div><div class="macro-lbl">Protéines</div></div>
-      <div class="macro-block"><div class="macro-val">70</div><div class="macro-unit">g</div><div class="macro-lbl">Lipides</div></div>
+      <div class="macro-block"><div class="macro-val">2900</div><div class="macro-unit">kcal</div><div class="macro-lbl">Calories</div></div>
+      <div class="macro-block"><div class="macro-val">145</div><div class="macro-unit">g</div><div class="macro-lbl">Protéines</div></div>
+      <div class="macro-block"><div class="macro-val">75</div><div class="macro-unit">g</div><div class="macro-lbl">Lipides</div></div>
     </div>
-    <div class="nutri-note">Objectif prise : <strong style="color:var(--accent)">+0.2 à 0.3 kg/semaine</strong>. Si 14 jours sans hausse → +150 kcal.</div>
+    <div class="nutri-note">Objectif prise : <strong style="color:var(--accent)">+0.2 à 0.3 kg/semaine</strong>. Si 14 jours sans hausse → +150 kcal. Mémoire musculaire : retour à 64 kg estimé en 6–10 semaines.</div>
   </div>
   <div class="nutri-card">
     <div class="nutri-title">🥤 Shake haute densité (~700+ kcal)</div>
@@ -263,115 +263,147 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 // ══════════════════════════════════════════════════════
 // repRange: [min, max] — used for double progression logic
 const PROGRAM = {
-  upperA:{id:'upperA',label:'Upper A',day:'Lundi',focus:'Pec haut · Largeur · Delto · Triceps',duration:60,exercises:[
+  // ── UPPER A — Lundi ─────────────────────────────────
+  // Pec haut / Largeur / Delto complet (médial + postérieur) / Triceps / Biceps
+  // Ordre : compound lourds → tirage → delto bloc (superset lat+rear) → face pull → bras
+  upperA:{id:'upperA',label:'Upper A',day:'Lundi',focus:'Pec haut · Largeur · Delto 3D · Triceps',duration:65,exercises:[
     {id:'smith_incline',name:'Smith Incline Press',sets:[
       {type:'top',label:'TOP SET',repMin:6,repMax:8},
       {type:'backoff',label:'BACK-OFF',repMin:8,repMax:10}
-    ],notes:'Ramp-up avant. 1 top set + 1 back-off.',failOk:false,weightStep:2.5},
+    ],notes:'Ramp-up avant. Coudes à 45°, descente 3 sec, pousser vers le haut et légèrement vers toi.',failOk:false,weightStep:2.5},
     {id:'dips',name:'Weighted Dips',sets:[
       {type:'work',label:'SET 1',repMin:6,repMax:10},
       {type:'work',label:'SET 2',repMin:6,repMax:10}
-    ],notes:'Buste légèrement penché. Contrôle.',failOk:false,weightStep:2.5},
+    ],notes:'Buste penché avant. Descente complète. Ne pas verrouiller les coudes.',failOk:false,weightStep:2.5},
     {id:'pulldown',name:'Neutral Grip Pulldown',sets:[
       {type:'work',label:'SET 1',repMin:8,repMax:12},
       {type:'work',label:'SET 2',repMin:8,repMax:12}
-    ],notes:'Dépression scapulaire. Grand étirement.',failOk:false,weightStep:2.5},
+    ],notes:'Dépression scapulaire avant de tirer. Coudes vers les hanches.',failOk:false,weightStep:2.5},
+    // ── BLOC DELTO : superset Lat Raise → Rear Delt (même câble, même station) ──
     {id:'lat_raise_a',name:'Cable Lateral Raise',sets:[
       {type:'work',label:'SET 1',repMin:12,repMax:20},
       {type:'work',label:'SET 2',repMin:12,repMax:20},
       {type:'work',label:'SET 3',repMin:12,repMax:20}
-    ],notes:'Dernier set : rest-pause possible.',failOk:true,weightStep:1},
+    ],notes:'🔁 SUPERSET avec Rear Delt. Coude légèrement fléchi, lever avec le coude pas la main.',failOk:true,weightStep:1},
+    {id:'rear_delt_a',name:'Rear Delt Fly Câble',sets:[
+      {type:'work',label:'SET 1',repMin:12,repMax:15},
+      {type:'work',label:'SET 2',repMin:12,repMax:15},
+      {type:'work',label:'SET 3',repMin:12,repMax:15}
+    ],notes:'🔁 SUPERSET avec Lateral Raise. Légèrement penché, coudes hauts, tirer en arc.',failOk:true,weightStep:1},
+    // ── FACE PULL en fin de séance — prévention épaules ──
+    {id:'face_pull_a',name:'Face Pull Câble',sets:[
+      {type:'work',label:'SET 1',repMin:15,repMax:20},
+      {type:'work',label:'SET 2',repMin:15,repMax:20}
+    ],notes:'Corde vers le front. Coudes au-dessus des épaules. Rotation externe.',failOk:true,weightStep:1},
     {id:'rope_tri',name:'Overhead Rope Extension',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:15},
       {type:'work',label:'SET 2',repMin:10,repMax:15}
-    ],notes:'Long chef. Étirement complet.',failOk:true,weightStep:2.5},
+    ],notes:'Étirement complet en haut. Coudes fixes, ne pas les écarter.',failOk:true,weightStep:2.5},
     {id:'preacher',name:'Preacher Curl Machine',sets:[
       {type:'work',label:'SET 1',repMin:8,repMax:12},
       {type:'work',label:'SET 2',repMin:8,repMax:12}
-    ],notes:'Échec contrôlé OK.',failOk:true,weightStep:2.5}
+    ],notes:'Descente lente 3 sec. Pas de balancement. Échec contrôlé OK.',failOk:true,weightStep:2.5}
   ]},
-  lowerA:{id:'lowerA',label:'Lower A',day:'Mardi',focus:'Quads + Mollets',duration:60,exercises:[
+
+  // ── LOWER A — Mardi ─────────────────────────────────
+  // Quads dominant + mollets. Aucun changement.
+  lowerA:{id:'lowerA',label:'Lower A',day:'Mardi',focus:'Quads · Mollets',duration:60,exercises:[
     {id:'hack_squat_a',name:'Hack Squat',sets:[
       {type:'work',label:'SET 1',repMin:6,repMax:10},
       {type:'work',label:'SET 2',repMin:6,repMax:10}
-    ],notes:'Ramp-up avant. Profond, contrôlé.',failOk:false,weightStep:5},
+    ],notes:'Ramp-up avant. Pieds milieu plateforme, genoux dans l\'axe des orteils, descente profonde.',failOk:false,weightStep:5},
     {id:'leg_press_a',name:'Leg Press',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:15},
       {type:'work',label:'SET 2',repMin:10,repMax:15}
-    ],notes:'',failOk:false,weightStep:5},
+    ],notes:'Pieds dans l\'axe. Ne pas décoller le bas du dos en bas.',failOk:false,weightStep:5},
     {id:'leg_ext',name:'Leg Extension',sets:[
       {type:'work',label:'SET 1',repMin:12,repMax:15},
       {type:'work',label:'SET 2',repMin:12,repMax:15}
-    ],notes:'Dernier set : drop set optionnel.',failOk:true,weightStep:2.5},
+    ],notes:'Pause 1 sec en haut. Descente contrôlée. Drop set optionnel sur le dernier.',failOk:true,weightStep:2.5},
     {id:'seated_curl_a',name:'Seated Leg Curl',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:15},
       {type:'work',label:'SET 2',repMin:10,repMax:15}
-    ],notes:'',failOk:true,weightStep:2.5},
+    ],notes:'Pointe des pieds vers toi. Contraction complète en bas.',failOk:true,weightStep:2.5},
     {id:'standing_calf',name:'Standing Calf Raise',sets:[
       {type:'work',label:'SET 1',repMin:8,repMax:15},
       {type:'work',label:'SET 2',repMin:8,repMax:15},
       {type:'work',label:'SET 3',repMin:8,repMax:15},
       {type:'work',label:'SET 4',repMin:8,repMax:15}
-    ],notes:'Pause 2 sec en bas.',failOk:true,weightStep:2.5},
+    ],notes:'Pause 2 sec en bas. Montée explosive. Descente lente.',failOk:true,weightStep:2.5},
     {id:'tibialis',name:'Tibialis Raises',sets:[
       {type:'work',label:'SET 1',repMin:null,repMax:null},
       {type:'work',label:'SET 2',repMin:null,repMax:null}
-    ],notes:'Optionnel.',failOk:false,weightStep:null}
+    ],notes:'Optionnel. Talons au sol, lever la pointe des pieds.',failOk:false,weightStep:null}
   ]},
-  upperB:{id:'upperB',label:'Upper B',day:'Jeudi',focus:'Dos · Bras · Delto',duration:70,exercises:[
+
+  // ── UPPER B — Jeudi ─────────────────────────────────
+  // Dos dominant / bras / delto médial / face pull fin de séance
+  // Ordre : compound tirage lourds → machine press (volume pec maintien) → delto médial → face pull → bras
+  upperB:{id:'upperB',label:'Upper B',day:'Jeudi',focus:'Dos · Bras · Delto médial',duration:70,exercises:[
     {id:'pullups',name:'Weighted Pull-Ups',sets:[
       {type:'work',label:'SET 1',repMin:6,repMax:8},
       {type:'work',label:'SET 2',repMin:6,repMax:8}
-    ],notes:'Sans ego. ROM propre.',failOk:false,weightStep:2.5},
+    ],notes:'Scapulas d\'abord, tirer les coudes vers les hanches. ROM propre, sans ego.',failOk:false,weightStep:2.5},
     {id:'chest_row',name:'Chest Supported Row',sets:[
       {type:'work',label:'SET 1',repMin:8,repMax:12},
       {type:'work',label:'SET 2',repMin:8,repMax:12}
-    ],notes:'',failOk:false,weightStep:2.5},
+    ],notes:'Omoplate rétractée. Tirer vers le nombril. Pause 1 sec en contracté.',failOk:false,weightStep:2.5},
     {id:'machine_press',name:'Machine Chest Press',sets:[
       {type:'work',label:'SET 1',repMin:8,repMax:12},
       {type:'work',label:'SET 2',repMin:8,repMax:12}
-    ],notes:'Volume minimum. Maintien / progression.',failOk:false,weightStep:2.5},
+    ],notes:'Coudes à 45°. Ne pas laisser les épaules monter. Maintien / progression.',failOk:false,weightStep:2.5},
     {id:'lat_raise_b',name:'Cable Lateral Raise',sets:[
       {type:'work',label:'SET 1',repMin:12,repMax:20},
       {type:'work',label:'SET 2',repMin:12,repMax:20},
       {type:'work',label:'SET 3',repMin:12,repMax:20}
-    ],notes:'',failOk:true,weightStep:1},
+    ],notes:'Coude légèrement fléchi. Lever avec le coude, pas la main.',failOk:true,weightStep:1},
+    // ── FACE PULL — après le delto, épaules encore "chaudes" ──
+    {id:'face_pull_b',name:'Face Pull Câble',sets:[
+      {type:'work',label:'SET 1',repMin:15,repMax:20},
+      {type:'work',label:'SET 2',repMin:15,repMax:20}
+    ],notes:'Corde vers le front. Coudes au-dessus des épaules. Rotation externe.',failOk:true,weightStep:1},
     {id:'ez_curl',name:'EZ Curl',sets:[
       {type:'work',label:'SET 1',repMin:6,repMax:10},
       {type:'work',label:'SET 2',repMin:6,repMax:10}
-    ],notes:'',failOk:true,weightStep:2.5},
+    ],notes:'Coudes fixes. Supination en haut. Descente contrôlée 3 sec.',failOk:true,weightStep:2.5},
     {id:'hammer_cable',name:'Hammer Curl Cable',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:15},
       {type:'work',label:'SET 2',repMin:10,repMax:15}
-    ],notes:'',failOk:true,weightStep:2.5},
+    ],notes:'Poignet neutre. Pas de balancement. Contraction complète en haut.',failOk:true,weightStep:2.5},
     {id:'pushdown',name:'Pushdown',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:15},
       {type:'work',label:'SET 2',repMin:10,repMax:15}
-    ],notes:'',failOk:true,weightStep:2.5}
+    ],notes:'Coudes collés au corps. Verrouiller en bas 1 sec.',failOk:true,weightStep:2.5}
   ]},
-  lowerB:{id:'lowerB',label:'Lower B',day:'Ven/Sam',focus:'Ischio · Posterior chain · Mollets',duration:60,exercises:[
+
+  // ── LOWER B — Ven/Sam ────────────────────────────────
+  // Ischio dominant / posterior chain / fessiers / mollets
+  // Split squat → remplacé par Leg Press amplitude profonde (fessiers + bas quad sans doublon)
+  lowerB:{id:'lowerB',label:'Lower B',day:'Ven/Sam',focus:'Ischio · Fessiers · Posterior chain · Mollets',duration:60,exercises:[
     {id:'rdl',name:'Romanian Deadlift',sets:[
       {type:'work',label:'SET 1',repMin:6,repMax:10},
       {type:'work',label:'SET 2',repMin:6,repMax:10}
-    ],notes:'Propre, pas bourrin.',failOk:false,weightStep:2.5},
+    ],notes:'Dos plat. Hanches en arrière. Étirement ischio complet. Pas les lombaires.',failOk:false,weightStep:2.5},
     {id:'seated_curl_b',name:'Seated Leg Curl',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:15},
       {type:'work',label:'SET 2',repMin:10,repMax:15}
-    ],notes:'',failOk:true,weightStep:2.5},
+    ],notes:'Pointe des pieds vers toi. Contraction complète en bas.',failOk:true,weightStep:2.5},
     {id:'hack_squat_b',name:'Hack Squat (léger)',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:12},
       {type:'work',label:'SET 2',repMin:10,repMax:12}
-    ],notes:'Charge réduite vs Lower A.',failOk:false,weightStep:5},
-    {id:'split_squat',name:'Split Squat Machine',sets:[
+    ],notes:'Même exécution que Lower A. Charge réduite, focus sur la sensation.',failOk:false,weightStep:5},
+    // ── Leg Press amplitude profonde — remplace split squat ──
+    // Focus fessiers + bas quad. Pieds hauts et larges, descendre au maximum.
+    {id:'leg_press_deep',name:'Leg Press Amplitude Profonde',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:15},
       {type:'work',label:'SET 2',repMin:10,repMax:15}
-    ],notes:'Ou leg press unilatérale.',failOk:false,weightStep:2.5},
+    ],notes:'Pieds hauts et écartés. Descendre au max. Focus fessiers / bas quad.',failOk:false,weightStep:5},
     {id:'seated_calf',name:'Seated Calf Raise',sets:[
       {type:'work',label:'SET 1',repMin:10,repMax:20},
       {type:'work',label:'SET 2',repMin:10,repMax:20},
       {type:'work',label:'SET 3',repMin:10,repMax:20},
       {type:'work',label:'SET 4',repMin:10,repMax:20}
-    ],notes:'Surcharge progressive.',failOk:true,weightStep:2.5}
+    ],notes:'Amplitude complète. Pause 2 sec en bas. Surcharge progressive.',failOk:true,weightStep:2.5}
   ]}
 };
 
@@ -406,25 +438,36 @@ loadS();
 // ══════════════════════════════════════════════════════
 
 function getExHistory(exId) {
-  // returns array of sessions: [{week, avgWeight, minReps, maxReps, allAtTop, anyBelowMin, sets:[]}]
-  // We look at sessionLog entries for this exId
   const history = [];
+  // Source 1 : sessions complétées (source principale)
   Object.entries(S.sessionLog).forEach(([key, sess]) => {
     if (!sess.completed) return;
-    const sets = sess.sets[exId];
+    const sets = sess.sets ? sess.sets[exId] : null;
     if (!sets || sets.length === 0) return;
-    const doneSets = sets.filter(s => s.done && s.w && s.r);
+    const doneSets = sets.filter(s => s.done && (s.w||s.weight) && (s.r||s.reps));
     if (doneSets.length === 0) return;
-    // Parse week from key e.g. "upperA_W3"
     const wMatch = key.match(/_W(\d+)$/);
     const week = wMatch ? parseInt(wMatch[1]) : 0;
     history.push({
       key, week,
-      timestamp: sess.timestamp || 0,
-      sets: doneSets.map(s => ({w: parseFloat(s.w), r: parseInt(s.r)}))
+      timestamp: sess.timestamp || week * 100000,
+      sets: doneSets.map(s => ({w: parseFloat(s.w||s.weight), r: parseInt(s.r||s.reps)}))
     });
   });
-  history.sort((a,b) => (a.timestamp||a.week) - (b.timestamp||b.week));
+  // Source 2 : progLog (fallback si séance pas marquée completed)
+  const pl = S.progLog[exId] || [];
+  pl.forEach(entry => {
+    const alreadyIn = history.some(h => Math.abs((h.timestamp||0) - (entry.date||0)) < 5000);
+    if (!alreadyIn) {
+      const existing = history.find(h => h.week === entry.week);
+      if (existing) {
+        existing.sets.push({w: entry.w, r: entry.r});
+      } else {
+        history.push({key:'pl_'+entry.week, week:entry.week, timestamp:entry.date||0, sets:[{w:entry.w, r:entry.r}]});
+      }
+    }
+  });
+  history.sort((a,b) => (a.timestamp||a.week*100000) - (b.timestamp||b.week*100000));
   return history;
 }
 
@@ -521,8 +564,8 @@ function sessionKey(dayId, week){ return `${dayId}_W${week}`; }
 
 function getOrInitSession(dayId, week){
   const k = sessionKey(dayId, week);
+  const prog = PROGRAM[dayId];
   if (!S.sessionLog[k]){
-    const prog = PROGRAM[dayId];
     const sets = {};
     prog.exercises.forEach(ex => {
       const sugg = getSuggestedSets(ex);
@@ -533,6 +576,18 @@ function getOrInitSession(dayId, week){
       }));
     });
     S.sessionLog[k] = {sets, completed:false, timestamp: Date.now()};
+  } else {
+    // Patch : ajouter les exercices manquants (ajoutés après la création de la session)
+    prog.exercises.forEach(ex => {
+      if (!S.sessionLog[k].sets[ex.id] || S.sessionLog[k].sets[ex.id].length === 0) {
+        const sugg = getSuggestedSets(ex);
+        S.sessionLog[k].sets[ex.id] = ex.sets.map((sd, i) => ({
+          w: sugg[i].w, r: sugg[i].r, done: false,
+          label: sd.label, type: sd.type,
+          repMin: sd.repMin, repMax: sd.repMax
+        }));
+      }
+    });
   }
   return S.sessionLog[k];
 }
@@ -550,6 +605,20 @@ function startSessTimer(){
   },1000);
 }
 function fmtTime(sec){const m=Math.floor(sec/60),s=sec%60;return `${m}:${String(s).padStart(2,'0')}`;}
+
+// Fix chrono écran verrouillé — recalcul depuis le timestamp à chaque réveil
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden && S.sessionActive && S.sessionStart){
+    const el=document.getElementById('sessTimerVal');
+    if(el) el.textContent=fmtTime(Math.floor((Date.now()-S.sessionStart)/1000));
+  }
+});
+window.addEventListener('focus',()=>{
+  if(S.sessionActive && S.sessionStart){
+    const el=document.getElementById('sessTimerVal');
+    if(el) el.textContent=fmtTime(Math.floor((Date.now()-S.sessionStart)/1000));
+  }
+});
 
 let restIv=null, restTotal=REST_SEC, restRem=REST_SEC;
 function startRest(dur){
@@ -664,7 +733,7 @@ function renderToday(){
         <span class="ex-num">${String(ei+1).padStart(2,'0')}</span>
         <span class="ex-name">${ex.name}</span>
         ${badgeHtml}
-        <span style="font-size:11px;color:var(--text2);margin-right:6px">${doneCount}/${sets.length}</span>
+        <span class="ex-sets-counter" style="font-size:11px;color:var(--text2);margin-right:6px">${doneCount}/${sets.length}</span>
         <span class="ex-chev">▾</span>
       </div>
       <div class="ex-body">`;
@@ -711,7 +780,7 @@ function renderToday(){
           </div>
         </td>
         <td style="text-align:right">
-          <button class="set-done-btn ${set.done?'done':''}" onclick="toggleDone('${ex.id}',${si})">
+          <button class="set-done-btn ${set.done?'done':''}" data-si="${si}" onclick="toggleDone('${ex.id}',${si})">
             ${set.done?'✓':'○'}
           </button>
         </td>
@@ -719,21 +788,33 @@ function renderToday(){
     });
     html+=`</tbody></table>`;
 
-    // Prev best
+    // Comparaison semaine précédente — série par série
     const hist = getExHistory(ex.id);
     if(hist.length>0){
-      const last=hist[hist.length-1];
-      const bestSet = last.sets.reduce((a,b)=>b.w>a.w?b:a);
+      const last = hist[hist.length-1];
+      // Afficher chaque set de la dernière séance
+      const setDetails = last.sets.map((s,i)=>`<span style="color:var(--text2)">${s.w}kg×${s.r}</span>`).join('<span style="color:var(--text3)"> · </span>');
       html+=`<div class="prev-best">
-        <div class="prev-best-lbl">Dernière séance (S${last.week})</div>
-        <div class="prev-best-val"><span>${bestSet.w} kg × ${bestSet.r} reps</span></div>
+        <div class="prev-best-lbl">Dernière fois — S${last.week}</div>
+        <div style="font-size:13px;margin-top:2px;line-height:1.6">${setDetails}</div>
       </div>`;
     }
 
     html+=`</div></div>`; // close ex-body + ex-block
   });
 
-  html+=`<button class="btn-primary btn-end" onclick="endSession()">Terminer la séance</button>`;
+  html+=`
+    <button class="btn-primary btn-end" onclick="endSession()">Terminer la séance</button>
+    <div id="abandonWrap" style="text-align:center;margin-bottom:24px">
+      <button onclick="showAbandon()" style="background:none;border:none;color:var(--text3);font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:8px;cursor:pointer">Abandonner (sans enregistrer)</button>
+    </div>
+    <div id="abandonConfirm" style="display:none;background:var(--surface2);border:1px solid var(--red);border-radius:var(--radius);padding:16px;margin-bottom:24px;text-align:center">
+      <div style="font-size:13px;color:var(--text2);margin-bottom:14px">Les séries cochées ne seront pas enregistrées.</div>
+      <div style="display:flex;gap:10px">
+        <button onclick="hideAbandon()" style="flex:1;background:var(--surface3);border:1px solid var(--border);border-radius:8px;color:var(--text2);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px;cursor:pointer">Annuler</button>
+        <button onclick="abandonSession()" style="flex:1;background:rgba(248,113,113,.1);border:1px solid var(--red);border-radius:8px;color:var(--red);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px;cursor:pointer">Abandonner</button>
+      </div>
+    </div>`;
   c.innerHTML = html;
   startSessTimer();
 }
@@ -747,6 +828,7 @@ function updateSet(exId, si, field, val){
   if(!S.sessionLog[k]) return;
   S.sessionLog[k].sets[exId][si][field]=val;
   saveS();
+  // Pas de re-render — le champ input garde sa valeur nativement
 }
 
 function toggleDone(exId, si){
@@ -755,15 +837,59 @@ function toggleDone(exId, si){
   const set = S.sessionLog[k].sets[exId][si];
   set.done = !set.done;
 
-  // Log to progression history
+  // Log progression
   if(set.done && set.w && set.r){
     if(!S.progLog[exId]) S.progLog[exId]=[];
     S.progLog[exId].push({week:S.week, w:parseFloat(set.w), r:parseInt(set.r), date:Date.now()});
+  } else if(!set.done){
+    // Annuler le log si on décoche
+    if(S.progLog[exId]){
+      S.progLog[exId] = S.progLog[exId].filter(e=>!(e.week===S.week && e.w===parseFloat(set.w) && e.r===parseInt(set.r)));
+    }
   }
 
   saveS();
-  renderToday();
+
+  // Mise à jour ciblée du bouton ✓ sans re-render complet
+  const btn = document.querySelector(`#exb_${exId} .set-done-btn[data-si="${si}"]`);
+  if(btn){
+    btn.classList.toggle('done', set.done);
+    btn.textContent = set.done ? '✓' : '○';
+  }
+
+  // Mettre à jour uniquement le compteur de séries de cet exercice
+  const counter = document.querySelector(`#exb_${exId} .ex-sets-counter`);
+  if(counter){
+    const sets = S.sessionLog[k].sets[exId];
+    counter.textContent = `${sets.filter(s=>s.done).length}/${sets.length}`;
+  }
+
+  // Mettre à jour le badge de progression si besoin
+  updateProgBadge(exId);
+
   if(set.done) startRest();
+}
+
+function updateProgBadge(exId){
+  // Trouver l'exercice dans le programme
+  let exDef = null;
+  SPLIT_ORDER.forEach(dayId=>{
+    PROGRAM[dayId].exercises.forEach(ex=>{ if(ex.id===exId) exDef=ex; });
+  });
+  if(!exDef) return;
+  const ps = getProgStatus(exDef);
+  const badgeEl = document.querySelector(`#exb_${exId} .ex-prog-badge`);
+  if(!badgeEl) return;
+  const map = {
+    up:   ['up','↑ Charge'],
+    warn: ['warn','⚠ Récup'],
+    stagnate: ['stagnate','≈ Stagnation'],
+    hold: ['hold','→ Rep+'],
+    none: [null, null]
+  };
+  const [cl, txt] = map[ps.status]||[null,null];
+  if(cl && txt){ badgeEl.className=`ex-prog-badge ${cl}`; badgeEl.textContent=txt; badgeEl.style.display=''; }
+  else { badgeEl.style.display='none'; }
 }
 
 function changeWeek(d){
@@ -814,6 +940,26 @@ function closeComplete(){
   renderToday();
 }
 
+function showAbandon(){
+  document.getElementById('abandonConfirm').style.display='block';
+  document.getElementById('abandonWrap').style.display='none';
+}
+function hideAbandon(){
+  document.getElementById('abandonConfirm').style.display='none';
+  document.getElementById('abandonWrap').style.display='block';
+}
+function abandonSession(){
+  const k=sessionKey(S.sessionDay, S.week);
+  delete S.sessionLog[k];
+  Object.keys(S.progLog).forEach(exId=>{
+    S.progLog[exId] = (S.progLog[exId]||[]).filter(e=> e.date < S.sessionStart);
+    if(S.progLog[exId].length===0) delete S.progLog[exId];
+  });
+  if(sessInterval) clearInterval(sessInterval);
+  S.sessionActive=false; S.sessionDay=null; S.sessionStart=null;
+  saveS(); renderToday();
+}
+
 // ══════════════════════════════════════════════════════
 //  PROGRESS VIEW
 // ══════════════════════════════════════════════════════
@@ -861,6 +1007,25 @@ function renderProgress(){
           }).join('')}
         </div>
         ${ps.status!=='none'?`<div class="prog-next-target">${ps.icon} <strong>${ps.title}</strong> — ${ps.target}</div>`:''}
+        <div style="margin-top:10px;border-top:1px solid var(--border)">
+          <button onclick="toggleHistDetail('hd_${ex.id}')" style="background:none;border:none;width:100%;text-align:left;padding:8px 0 0;color:var(--text3);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center">
+            Détail par série <span id="hd_${ex.id}_chev">▾</span>
+          </button>
+          <div id="hd_${ex.id}" style="display:none;margin-top:8px">
+            <table style="width:100%;border-collapse:collapse;font-size:12px">
+              <thead><tr>
+                <th style="text-align:left;color:var(--text3);font-weight:600;letter-spacing:1px;text-transform:uppercase;padding-bottom:6px;width:36px">S</th>
+                ${hist[0].sets.map((_,i)=>`<th style="text-align:center;color:var(--text3);font-weight:600;letter-spacing:1px;text-transform:uppercase;padding-bottom:6px">S${i+1}</th>`).join('')}
+              </tr></thead>
+              <tbody>
+                ${hist.map(h=>`<tr>
+                  <td style="color:var(--text3);padding:4px 0">S${h.week}</td>
+                  ${h.sets.map(s=>`<td style="text-align:center;color:var(--text2);padding:4px 0;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600">${s.w}<span style="color:var(--text3);font-size:10px">×</span>${s.r}</td>`).join('')}
+                </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>`;
     });
     if(dayHtml){
@@ -877,6 +1042,15 @@ function renderProgress(){
   }
 
   c.innerHTML=html;
+}
+
+function toggleHistDetail(id){
+  const el=document.getElementById(id);
+  const chev=document.getElementById(id+'_chev');
+  if(!el) return;
+  const open=el.style.display==='none';
+  el.style.display=open?'block':'none';
+  if(chev) chev.textContent=open?'▴':'▾';
 }
 
 // ══════════════════════════════════════════════════════
