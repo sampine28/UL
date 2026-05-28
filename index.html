@@ -426,6 +426,27 @@ function loadS(){try{const s=localStorage.getItem('bloc2');if(s)S={...S,...JSON.
 function saveS(){try{localStorage.setItem('bloc2',JSON.stringify(S))}catch(e){}}
 loadS();
 
+// Migration : marquer les anciennes séances avec des sets cochés comme completed
+(function migrateOldSessions(){
+  let changed = false;
+  Object.entries(S.sessionLog).forEach(([key, sess]) => {
+    if (sess.completed) return;
+    if (!sess.sets) return;
+    const hasDone = Object.values(sess.sets).some(sets =>
+      Array.isArray(sets) && sets.some(s => s.done && (s.w||s.weight) && (s.r||s.reps))
+    );
+    if (hasDone) {
+      sess.completed = true;
+      if (!sess.timestamp) {
+        const wMatch = key.match(/_W(\d+)$/);
+        sess.timestamp = wMatch ? parseInt(wMatch[1]) * 100000 : Date.now();
+      }
+      changed = true;
+    }
+  });
+  if (changed) saveS();
+})();
+
 // ══════════════════════════════════════════════════════
 //  DOUBLE PROGRESSION ENGINE
 //  For each exercise, analyse the last N sessions of that exercise.
@@ -439,34 +460,34 @@ loadS();
 
 function getExHistory(exId) {
   const history = [];
-  // Source 1 : sessions complétées (source principale)
+
   Object.entries(S.sessionLog).forEach(([key, sess]) => {
-    if (!sess.completed) return;
     const sets = sess.sets ? sess.sets[exId] : null;
     if (!sets || sets.length === 0) return;
     const doneSets = sets.filter(s => s.done && (s.w||s.weight) && (s.r||s.reps));
     if (doneSets.length === 0) return;
+
+    // Accepter les séances complétées OU celles qui ont des séries cochées (récupération legacy)
+    const isValid = sess.completed || doneSets.length > 0;
+    if (!isValid) return;
+
+    // Ne pas inclure la séance en cours (pas encore terminée)
+    const isCurrentSession = S.sessionActive && S.sessionDay && key === sessionKey(S.sessionDay, S.week);
+    if (isCurrentSession) return;
+
     const wMatch = key.match(/_W(\d+)$/);
     const week = wMatch ? parseInt(wMatch[1]) : 0;
+
+    // Éviter les doublons par clé
+    if (history.some(h => h.key === key)) return;
+
     history.push({
       key, week,
       timestamp: sess.timestamp || week * 100000,
       sets: doneSets.map(s => ({w: parseFloat(s.w||s.weight), r: parseInt(s.r||s.reps)}))
     });
   });
-  // Source 2 : progLog (fallback si séance pas marquée completed)
-  const pl = S.progLog[exId] || [];
-  pl.forEach(entry => {
-    const alreadyIn = history.some(h => Math.abs((h.timestamp||0) - (entry.date||0)) < 5000);
-    if (!alreadyIn) {
-      const existing = history.find(h => h.week === entry.week);
-      if (existing) {
-        existing.sets.push({w: entry.w, r: entry.r});
-      } else {
-        history.push({key:'pl_'+entry.week, week:entry.week, timestamp:entry.date||0, sets:[{w:entry.w, r:entry.r}]});
-      }
-    }
-  });
+
   history.sort((a,b) => (a.timestamp||a.week*100000) - (b.timestamp||b.week*100000));
   return history;
 }
