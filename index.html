@@ -17,16 +17,11 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-size:15px;min-height:100vh;overflow-x:hidden}
-
-/* ── HEADER ── */
 .hdr{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
 .hdr-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;letter-spacing:4px;color:var(--accent)}
 .hdr-sub{font-size:10px;color:var(--t3);letter-spacing:3px;text-transform:uppercase;margin-top:1px}
 .hdr-right{display:flex;align-items:center;gap:12px}
 .hdr-week{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--t2);text-transform:uppercase}
-.hdr-plan-btn{background:none;border:none;color:var(--t2);font-size:20px;cursor:pointer;padding:4px}
-
-/* ── REST BAR ── */
 .rest-bar{display:none;position:sticky;top:57px;z-index:90;background:var(--s1);border-bottom:1px solid var(--border)}
 .rest-bar.show{display:block}
 .rest-bar-inner{display:flex;align-items:center;gap:10px;padding:7px 16px}
@@ -35,18 +30,12 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 .rest-track{flex:1;height:3px;background:var(--s3);border-radius:3px;overflow:hidden}
 .rest-fill{height:100%;background:var(--accent);border-radius:3px;transition:width 1s linear}
 .rest-skip-btn{background:none;border:1px solid var(--border);border-radius:20px;color:var(--t2);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 11px;cursor:pointer;flex-shrink:0}
-
-/* ── TABS ── */
 .tabs{display:flex;background:var(--s1);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:1;min-width:72px;padding:11px 8px;text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);cursor:pointer;border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;transition:all .2s;white-space:nowrap}
 .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
-
-/* ── VIEWS ── */
 .view{display:none;padding:16px;padding-bottom:100px}
 .view.active{display:block}
-
-/* ── COMPLETE OVERLAY ── */
 .complete-ov{display:none;position:fixed;inset:0;z-index:300;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;padding:32px}
 .complete-ov.show{display:flex}
 .co-icon{font-size:56px;margin-bottom:20px}
@@ -57,37 +46,26 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 .co-stat-val{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:var(--accent)}
 .co-stat-lbl{font-size:11px;color:var(--t2);letter-spacing:1px;text-transform:uppercase}
 .co-close{background:var(--accent);color:#000;border:none;border-radius:var(--r);padding:14px 36px;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;letter-spacing:3px;text-transform:uppercase;cursor:pointer}
-
-/* ── WEEK SELECTOR ── */
 .week-sel{display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .week-btn{background:var(--s2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 16px;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;cursor:pointer}
 .week-btn:active{background:var(--s3)}
 .week-disp{flex:1;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
-
-/* ── DAY CARDS (home) ── */
 .day-card{width:100%;background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:left;color:var(--text);cursor:pointer;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
 .day-card:active{background:var(--s2)}
 .day-card.done{border-color:var(--green)}
-.day-card-left{}
 .day-card-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:1px}
 .day-card-sub{font-size:12px;color:var(--t2);margin-top:3px}
 .day-card-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
 .day-card-dur{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--t3);letter-spacing:1px}
 .day-card-badge{font-size:10px;background:rgba(74,222,128,.15);color:var(--green);padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:1px}
-
-/* ── GLOBAL ALERT ── */
 .global-alert{background:rgba(232,255,71,.05);border:1px solid rgba(232,255,71,.2);border-radius:var(--r);padding:12px 14px;margin-bottom:16px;font-size:12px;color:var(--t2);line-height:1.6}
 .global-alert strong{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
-
-/* ── SESSION ── */
 .sess-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
 .sess-title{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900;line-height:1;text-transform:uppercase;letter-spacing:1px}
 .sess-focus{font-size:11px;color:var(--t2);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 .sess-timer-box{background:var(--s2);border:1px solid var(--border);border-radius:var(--r);padding:7px 12px;text-align:center;min-width:76px}
 .sess-timer-val{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--accent);letter-spacing:2px}
 .sess-timer-lbl{font-size:9px;color:var(--t3);letter-spacing:1px;text-transform:uppercase}
-
-/* ── EXERCISE BLOCK ── */
 .ex-block{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
 .ex-head{display:flex;align-items:center;padding:13px 14px;cursor:pointer;user-select:none}
 .ex-head:active{background:var(--s2)}
@@ -103,8 +81,6 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 .ex-block.open .ex-chev{transform:rotate(180deg)}
 .ex-body{display:none;padding:0 14px 14px}
 .ex-block.open .ex-body{display:block}
-
-/* ── PROGRESSION BANNER ── */
 .prog-banner{border-radius:9px;padding:10px 12px;margin-bottom:12px;display:flex;gap:10px;align-items:flex-start}
 .prog-banner.up{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.18)}
 .prog-banner.hold{background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.18)}
@@ -115,14 +91,10 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 .pb-title.up{color:var(--green)}.pb-title.hold{color:var(--blue)}.pb-title.warn{color:var(--orange)}.pb-title.stag{color:var(--red)}
 .pb-desc{font-size:11px;color:var(--t2);line-height:1.4}
 .pb-target{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-top:3px}
-
-/* ── META TAGS ── */
 .ex-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
 .meta-tag{font-size:10px;font-weight:600;letter-spacing:1px;padding:3px 8px;border-radius:20px;text-transform:uppercase;background:var(--s3);color:var(--t2)}
 .meta-tag.fail{background:rgba(248,113,113,.1);color:var(--red)}
 .meta-tag.orange{background:rgba(255,107,53,.1);color:var(--accent2)}
-
-/* ── SETS TABLE ── */
 .sets-tbl{width:100%;border-collapse:collapse}
 .sets-tbl th{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);font-weight:600;padding:0 0 7px;text-align:left}
 .sets-tbl th:last-child{text-align:right}
@@ -138,25 +110,15 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 .done-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--border);background:none;color:var(--t3);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
 .done-btn.done{background:var(--green);border-color:var(--green);color:#000}
 .done-btn:active{transform:scale(.88)}
-
-/* ── PREV BEST ── */
 .prev-best{margin-top:10px;padding:9px 11px;background:rgba(255,255,255,.025);border-radius:8px;border-left:2px solid var(--s3)}
 .prev-best-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:3px}
-.prev-best-sets{font-size:13px;color:var(--t2);line-height:1.6}
-.prev-best-sets span{color:var(--t2)}
-
-/* ── SESSION BUTTONS ── */
-.btn-end{width:100%;background:var(--s2);color:var(--red);border:1px solid var(--red);border-radius:var(--r);font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:14px;cursor:pointer;margin-bottom:10px;transition:opacity .15s}
+.btn-end{width:100%;background:var(--s2);color:var(--red);border:1px solid var(--red);border-radius:var(--r);font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:14px;cursor:pointer;margin-bottom:10px}
 .btn-end:active{opacity:.8}
-.btn-abandon-wrap{text-align:center;margin-bottom:20px}
-.btn-abandon{background:none;border:none;color:var(--t3);font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:8px;cursor:pointer}
 .abandon-confirm{display:none;background:var(--s2);border:1px solid var(--red);border-radius:var(--r);padding:14px;margin-bottom:20px;text-align:center}
 .abandon-confirm p{font-size:12px;color:var(--t2);margin-bottom:12px}
 .abandon-btns{display:flex;gap:10px}
 .abandon-cancel{flex:1;background:var(--s3);border:1px solid var(--border);border-radius:8px;color:var(--t2);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:11px;cursor:pointer}
 .abandon-go{flex:1;background:rgba(248,113,113,.1);border:1px solid var(--red);border-radius:8px;color:var(--red);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:11px;cursor:pointer}
-
-/* ── PROGRESS VIEW ── */
 .prog-sec-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--t2);margin:18px 0 10px}
 .prog-sec-title:first-child{margin-top:2px}
 .prog-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:13px 14px;margin-bottom:10px}
@@ -179,8 +141,6 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 .hist-tbl th:not(:first-child){text-align:center}
 .hist-tbl td{padding:3px 0;color:var(--t2)}
 .hist-tbl td:not(:first-child){text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600}
-
-/* ── PLAN VIEW ── */
 .plan-banner{background:rgba(255,107,53,.06);border:1px solid rgba(255,107,53,.22);border-radius:var(--r);padding:12px 14px;margin-bottom:14px;font-size:12px;color:var(--accent2);line-height:1.5}
 .plan-banner strong{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:4px}
 .plan-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
@@ -194,21 +154,19 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 .plan-ex-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border)}
 .plan-ex-row:last-child{border-bottom:none}
 .plan-ex-num{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;color:var(--accent);background:rgba(232,255,71,.1);padding:2px 5px;border-radius:4px;margin-top:2px;white-space:nowrap;flex-shrink:0}
-.plan-ex-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:2px}
-.plan-ex-desc{font-size:11px;color:var(--t2);line-height:1.4}
-
-/* ── RULES VIEW ── */
+.plan-ex-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px}
+.plan-ex-desc{font-size:11px;color:var(--t2);line-height:1.5}
 .rule-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px}
 .rule-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:8px}
 .rule-body{font-size:13px;color:var(--t2);line-height:1.6}
 .rule-body strong{color:var(--text)}
-
+.debug-card{background:var(--s1);border:1px solid var(--t3);border-radius:var(--r);padding:14px;margin-bottom:10px}
+.debug-out{display:none;font-size:11px;color:var(--t2);word-break:break-all;line-height:1.8;background:var(--bg);padding:10px;border-radius:8px;white-space:pre-wrap;margin-top:8px;max-height:400px;overflow-y:auto}
 .bottom-safe{height:env(safe-area-inset-bottom,20px)}
 </style>
 </head>
 <body>
 
-<!-- COMPLETE OVERLAY -->
 <div class="complete-ov" id="completeOv">
   <div class="co-icon">🔥</div>
   <div class="co-title">Séance terminée</div>
@@ -222,29 +180,23 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
   <button class="co-close" onclick="closeComplete()">Super 💪</button>
 </div>
 
-<!-- HEADER -->
 <div class="hdr">
-  <div>
-    <div class="hdr-logo">PROJECT 70</div>
-    <div class="hdr-sub">Yates Hybrid · V1</div>
-  </div>
+  <div><div class="hdr-logo">PROJECT 70</div><div class="hdr-sub">Yates Hybrid · V1</div></div>
   <div class="hdr-right">
     <div class="hdr-week" id="hdrWeek">S1</div>
-    <button class="hdr-plan-btn" onclick="showTab('plan')">≡</button>
+    <button style="background:none;border:none;color:var(--t2);font-size:20px;cursor:pointer;padding:4px" onclick="showTab('plan')">≡</button>
   </div>
 </div>
 
-<!-- REST BAR -->
 <div class="rest-bar" id="restBar">
   <div class="rest-bar-inner">
     <span class="rest-lbl">Repos</span>
-    <span class="rest-num" id="restNum">120</span>
+    <span class="rest-num" id="restNum">90</span>
     <div class="rest-track"><div class="rest-fill" id="restFill" style="width:100%"></div></div>
     <button class="rest-skip-btn" onclick="skipRest()">Passer</button>
   </div>
 </div>
 
-<!-- TABS -->
 <div class="tabs">
   <button class="tab active" data-tab="today" onclick="showTab('today')">Séance</button>
   <button class="tab" data-tab="progress" onclick="showTab('progress')">Progression</button>
@@ -255,703 +207,347 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 <div class="view active" id="view-today"><div id="todayContent"></div></div>
 <div class="view" id="view-progress"><div id="progressContent"></div></div>
 <div class="view" id="view-plan"><div id="planContent"></div></div>
-<div class="view" id="view-rules"><div id="rulesContent"></div></div>
+<div class="view" id="view-rules">
+  <div class="rule-card"><div class="rule-title">Progression</div><div class="rule-body">Double progression : <strong>atteindre le haut de la fourchette sur toutes les séries</strong> avant d'augmenter la charge.</div></div>
+  <div class="rule-card"><div class="rule-title">Top Set + Back-off</div><div class="rule-body">Compound principaux : <strong>top set à effort max, back-off à 85–90%</strong> de la charge du top set.</div></div>
+  <div class="rule-card"><div class="rule-title">Repos</div><div class="rule-body"><strong>Polyarticulaires : 2 min 30.</strong> Timer automatique.<br><br><strong>Isolations : 90 secondes.</strong> Timer automatique.</div></div>
+  <div class="rule-card"><div class="rule-title">Intensité</div><div class="rule-body"><strong>Dernière série : 0 RIR</strong> (échec technique).<br>Autres séries : <strong>1 RIR</strong>.</div></div>
+  <div class="rule-card"><div class="rule-title">Deload</div><div class="rule-body">Toutes les <strong>6–8 semaines</strong> ou si : sommeil dégradé, stagnation, douleurs, motivation en baisse.<br>1 semaine à <strong>50–60% volume, RIR 3</strong>.</div></div>
+  <div class="rule-card"><div class="rule-title">Points ouverts</div><div class="rule-body">· <strong>Pec Deck vs Cable Fly</strong> — selon sensations.<br>· <strong>Volume bras</strong> — à ajuster si besoin.<br>· <strong>Volume épaules</strong> — 8 séries/sem à valider sur 8 sem.<br>· <strong>Hammer vs Life Fitness</strong> — selon sensations.</div></div>
+  <div class="debug-card">
+    <div class="rule-title" style="color:var(--t2)">🔧 Diagnostic données</div>
+    <div class="rule-body" style="margin-bottom:10px">Appuie pour voir ce qui est stocké sur ton téléphone.</div>
+    <button id="debugBtn" onclick="runDebug()" style="width:100%;background:var(--s3);border:1px solid var(--border);border-radius:8px;color:var(--t2);font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:11px;cursor:pointer">Inspecter les données</button>
+    <div class="debug-out" id="debugOut"></div>
+  </div>
+</div>
 <div class="bottom-safe"></div>
 
 <script>
-// ══════════════════════════════════════════════════════
-//  PROGRAMME — PROJECT 70 V1
-// ══════════════════════════════════════════════════════
-const PROGRAM = {
-  push:{
-    id:'push', label:'PUSH', day:'Lundi', focus:'Pec · Épaules · Triceps', duration:65,
-    exercises:[
-      {id:'smith_incline', name:'Smith Incliné', sets:[
-        {type:'top',label:'TOP SET',repMin:6,repMax:10},
-        {type:'backoff',label:'BACK-OFF',repMin:6,repMax:10}
-      ], notes:'Ramp-up avant. Coudes à 45°, descente 3 sec. Pousser vers le haut et légèrement vers toi.', failOk:false, weightStep:2.5},
-      {id:'chest_press_conv', name:'Chest Press Convergente', sets:[
-        {type:'top',label:'TOP SET',repMin:8,repMax:10},
-        {type:'backoff',label:'BACK-OFF',repMin:8,repMax:10}
-      ], notes:'Coudes à 45°. Ne pas laisser les épaules monter. Top set + back-off.', failOk:false, weightStep:2.5},
-      {id:'pec_deck', name:'Pec Deck', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Amplitude complète. Contraction 1 sec au centre. Sensation > charge.', failOk:true, weightStep:2.5},
-      {id:'lat_raise_push', name:'Élévations Latérales Poulie', sets:[
-        {type:'work',label:'SET 1',repMin:12,repMax:20},
-        {type:'work',label:'SET 2',repMin:12,repMax:20},
-        {type:'work',label:'SET 3',repMin:12,repMax:20},
-        {type:'work',label:'SET 4',repMin:12,repMax:20}
-      ], notes:'Coude légèrement fléchi. Lever avec le coude, pas la main. RIR 0 sur le dernier.', failOk:true, weightStep:1},
-      {id:'pushdown_push', name:'Pushdown', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Coudes collés au corps. Verrouiller en bas 1 sec.', failOk:true, weightStep:2.5}
-    ]
-  },
-  pull:{
-    id:'pull', label:'PULL', day:'Mardi', focus:'Dos · Biceps · Trapèzes', duration:70,
-    exercises:[
-      {id:'hammer_pulldown', name:'Hammer Lat Pulldown', sets:[
-        {type:'top',label:'TOP SET',repMin:6,repMax:10},
-        {type:'backoff',label:'BACK-OFF',repMin:6,repMax:10}
-      ], notes:'Dépression scapulaire avant de tirer. Coudes vers les hanches. Ramp-up avant.', failOk:false, weightStep:2.5},
-      {id:'hammer_iso_row', name:'Hammer Iso Row', sets:[
-        {type:'top',label:'TOP SET',repMin:8,repMax:10},
-        {type:'backoff',label:'BACK-OFF',repMin:8,repMax:10}
-      ], notes:'Omoplate rétractée. Tirer vers le nombril. Pause 1 sec en contracté.', failOk:false, weightStep:2.5},
-      {id:'pullover_machine', name:'Pullover Machine', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Étirement complet en haut. Tirer avec les coudes, pas les mains.', failOk:true, weightStep:2.5},
-      {id:'reverse_pec_deck_pull', name:'Reverse Pec Deck', sets:[
-        {type:'work',label:'SET 1',repMin:12,repMax:20},
-        {type:'work',label:'SET 2',repMin:12,repMax:20},
-        {type:'work',label:'SET 3',repMin:12,repMax:20}
-      ], notes:'Coudes hauts, tirer en arc. Sensation rear delt > charge. RIR 0 dernier set.', failOk:true, weightStep:2.5},
-      {id:'preacher_curl', name:'Preacher Curl', sets:[
-        {type:'work',label:'SET 1',repMin:8,repMax:12},
-        {type:'work',label:'SET 2',repMin:8,repMax:12}
-      ], notes:'Descente lente 3 sec. Pas de balancement. Échec contrôlé OK.', failOk:true, weightStep:2.5},
-      {id:'hammer_curl_pull', name:'Hammer Curl', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Poignet neutre. Pas de balancement. Contraction complète en haut.', failOk:true, weightStep:2.5},
-      {id:'shrugs', name:'Shrugs', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Montée lente, pause 1 sec en haut. Pas de rotation des épaules.', failOk:true, weightStep:5}
-    ]
-  },
-  legs:{
-    id:'legs', label:'LEGS', day:'Jeudi', focus:'Quads · Ischio · Mollets', duration:70,
-    exercises:[
-      {id:'hack_squat', name:'Hack Squat', sets:[
-        {type:'top',label:'TOP SET',repMin:6,repMax:10},
-        {type:'backoff',label:'BACK-OFF',repMin:6,repMax:10}
-      ], notes:'Ramp-up avant. Pieds milieu plateforme, genoux dans l\'axe des orteils. Descente profonde.', failOk:false, weightStep:5},
-      {id:'rdl', name:'Romanian Deadlift', sets:[
-        {type:'work',label:'SET 1',repMin:8,repMax:10},
-        {type:'work',label:'SET 2',repMin:8,repMax:10}
-      ], notes:'Dos plat. Hanches en arrière. Étirement ischio complet. Pas les lombaires.', failOk:false, weightStep:2.5},
-      {id:'leg_curl_legs', name:'Leg Curl Assis', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Pointe des pieds vers toi. Contraction complète en bas.', failOk:true, weightStep:2.5},
-      {id:'leg_press_legs', name:'Leg Press', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Pieds dans l\'axe. Ne pas décoller le bas du dos en bas de course.', failOk:false, weightStep:5},
-      {id:'leg_ext_legs', name:'Leg Extension', sets:[
-        {type:'work',label:'SET 1',repMin:12,repMax:15},
-        {type:'work',label:'SET 2',repMin:12,repMax:15}
-      ], notes:'Machine à came. Pause 1 sec en haut. Descente contrôlée. Drop set optionnel dernier set.', failOk:true, weightStep:2.5},
-      {id:'standing_calf', name:'Standing Calf Raise', sets:[
-        {type:'work',label:'SET 1',repMin:8,repMax:15},
-        {type:'work',label:'SET 2',repMin:8,repMax:15},
-        {type:'work',label:'SET 3',repMin:8,repMax:15}
-      ], notes:'Montée explosive. Pause 2 sec en bas. Descente contrôlée.', failOk:true, weightStep:2.5},
-      {id:'seated_calf', name:'Seated Calf Raise', sets:[
-        {type:'work',label:'SET 1',repMin:12,repMax:20},
-        {type:'work',label:'SET 2',repMin:12,repMax:20},
-        {type:'work',label:'SET 3',repMin:12,repMax:20}
-      ], notes:'Amplitude complète. Pause 2 sec en bas. Surcharge progressive.', failOk:true, weightStep:2.5}
-    ]
-  },
-  upper:{
-    id:'upper', label:'UPPER', day:'Vendredi', focus:'Accent esthétique · Bras · Épaules', duration:65,
-    exercises:[
-      {id:'machine_chest_press', name:'Machine Chest Press', sets:[
-        {type:'work',label:'SET 1',repMin:8,repMax:12},
-        {type:'work',label:'SET 2',repMin:8,repMax:12}
-      ], notes:'Coudes à 45°. Volume maintien / progression. Ne pas laisser les épaules monter.', failOk:false, weightStep:2.5},
-      {id:'hammer_high_row', name:'Hammer High Row', sets:[
-        {type:'work',label:'SET 1',repMin:8,repMax:12},
-        {type:'work',label:'SET 2',repMin:8,repMax:12}
-      ], notes:'Tirer vers le haut de la poitrine. Coudes hauts. Contraction complète.', failOk:false, weightStep:2.5},
-      {id:'lat_raise_upper', name:'Élévations Latérales', sets:[
-        {type:'work',label:'SET 1',repMin:12,repMax:20},
-        {type:'work',label:'SET 2',repMin:12,repMax:20},
-        {type:'work',label:'SET 3',repMin:12,repMax:20},
-        {type:'work',label:'SET 4',repMin:12,repMax:20}
-      ], notes:'Coude légèrement fléchi. Lever avec le coude, pas la main.', failOk:true, weightStep:1},
-      {id:'reverse_pec_deck_upper', name:'Reverse Pec Deck', sets:[
-        {type:'work',label:'SET 1',repMin:12,repMax:20},
-        {type:'work',label:'SET 2',repMin:12,repMax:20}
-      ], notes:'Coudes hauts, tirer en arc. Rear delt. Sensation > charge.', failOk:true, weightStep:2.5},
-      {id:'bayesian_curl', name:'Bayesian Curl', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Câble derrière le corps. Étirement max en bas. Contraction complète en haut.', failOk:true, weightStep:2.5},
-      {id:'hammer_curl_upper', name:'Hammer Curl', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Poignet neutre. Pas de balancement. Contraction complète.', failOk:true, weightStep:2.5},
-      {id:'overhead_ext', name:'Overhead Extension', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Long chef. Étirement complet en haut. Coudes fixes, ne pas les écarter.', failOk:true, weightStep:2.5},
-      {id:'pushdown_upper', name:'Pushdown', sets:[
-        {type:'work',label:'SET 1',repMin:10,repMax:15},
-        {type:'work',label:'SET 2',repMin:10,repMax:15}
-      ], notes:'Coudes collés. Verrouiller en bas 1 sec.', failOk:true, weightStep:2.5}
-    ]
-  }
+const PROGRAM={
+  push:{id:'push',label:'PUSH',day:'Lundi',focus:'Pec · Épaules · Triceps',duration:65,exercises:[
+    {id:'smith_incline',name:'Smith Incliné',sets:[{type:'top',label:'TOP SET',repMin:6,repMax:10},{type:'backoff',label:'BACK-OFF',repMin:6,repMax:10}],notes:'Ramp-up avant. Coudes à 45°, descente 3 sec, pousser vers le haut et légèrement vers toi.',failOk:false,weightStep:2.5},
+    {id:'chest_press_conv',name:'Chest Press Convergente',sets:[{type:'top',label:'TOP SET',repMin:8,repMax:10},{type:'backoff',label:'BACK-OFF',repMin:8,repMax:10}],notes:'Coudes à 45°. Ne pas laisser les épaules monter.',failOk:false,weightStep:2.5},
+    {id:'pec_deck',name:'Pec Deck',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Amplitude complète. Contraction 1 sec au centre. Sensation > charge.',failOk:true,weightStep:2.5},
+    {id:'lat_raise_push',name:'Élévations Latérales Poulie',sets:[{type:'work',label:'SET 1',repMin:12,repMax:20},{type:'work',label:'SET 2',repMin:12,repMax:20},{type:'work',label:'SET 3',repMin:12,repMax:20},{type:'work',label:'SET 4',repMin:12,repMax:20}],notes:'Coude légèrement fléchi. Lever avec le coude, pas la main.',failOk:true,weightStep:1},
+    {id:'pushdown_push',name:'Pushdown',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Coudes collés au corps. Verrouiller en bas 1 sec.',failOk:true,weightStep:2.5}
+  ]},
+  pull:{id:'pull',label:'PULL',day:'Mardi',focus:'Dos · Biceps · Trapèzes',duration:70,exercises:[
+    {id:'hammer_pulldown',name:'Hammer Lat Pulldown',sets:[{type:'top',label:'TOP SET',repMin:6,repMax:10},{type:'backoff',label:'BACK-OFF',repMin:6,repMax:10}],notes:'Dépression scapulaire avant de tirer. Coudes vers les hanches. Ramp-up avant.',failOk:false,weightStep:2.5},
+    {id:'hammer_iso_row',name:'Hammer Iso Row',sets:[{type:'top',label:'TOP SET',repMin:8,repMax:10},{type:'backoff',label:'BACK-OFF',repMin:8,repMax:10}],notes:'Omoplate rétractée. Tirer vers le nombril. Pause 1 sec en contracté.',failOk:false,weightStep:2.5},
+    {id:'pullover_machine',name:'Pullover Machine',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Étirement complet en haut. Tirer avec les coudes, pas les mains.',failOk:true,weightStep:2.5},
+    {id:'reverse_pec_deck_pull',name:'Reverse Pec Deck',sets:[{type:'work',label:'SET 1',repMin:12,repMax:20},{type:'work',label:'SET 2',repMin:12,repMax:20},{type:'work',label:'SET 3',repMin:12,repMax:20}],notes:'Coudes hauts, tirer en arc. Sensation rear delt > charge.',failOk:true,weightStep:2.5},
+    {id:'preacher_curl',name:'Preacher Curl',sets:[{type:'work',label:'SET 1',repMin:8,repMax:12},{type:'work',label:'SET 2',repMin:8,repMax:12}],notes:'Descente lente 3 sec. Pas de balancement. Échec contrôlé OK.',failOk:true,weightStep:2.5},
+    {id:'hammer_curl_pull',name:'Hammer Curl',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Poignet neutre. Pas de balancement. Contraction complète en haut.',failOk:true,weightStep:2.5},
+    {id:'shrugs',name:'Shrugs',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Montée lente, pause 1 sec en haut. Pas de rotation des épaules.',failOk:true,weightStep:5}
+  ]},
+  legs:{id:'legs',label:'LEGS',day:'Jeudi',focus:'Quads · Ischio · Mollets',duration:70,exercises:[
+    {id:'hack_squat',name:'Hack Squat',sets:[{type:'top',label:'TOP SET',repMin:6,repMax:10},{type:'backoff',label:'BACK-OFF',repMin:6,repMax:10}],notes:'Ramp-up avant. Pieds milieu plateforme, genoux dans l\'axe des orteils. Descente profonde.',failOk:false,weightStep:5},
+    {id:'rdl',name:'Romanian Deadlift',sets:[{type:'work',label:'SET 1',repMin:8,repMax:10},{type:'work',label:'SET 2',repMin:8,repMax:10}],notes:'Dos plat. Hanches en arrière. Étirement ischio complet. Pas les lombaires.',failOk:false,weightStep:2.5},
+    {id:'leg_curl_legs',name:'Leg Curl Assis',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Pointe des pieds vers toi. Contraction complète en bas.',failOk:true,weightStep:2.5},
+    {id:'leg_press_legs',name:'Leg Press',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Pieds dans l\'axe. Ne pas décoller le bas du dos en bas de course.',failOk:false,weightStep:5},
+    {id:'leg_ext_legs',name:'Leg Extension',sets:[{type:'work',label:'SET 1',repMin:12,repMax:15},{type:'work',label:'SET 2',repMin:12,repMax:15}],notes:'Machine à came. Pause 1 sec en haut. Descente contrôlée.',failOk:true,weightStep:2.5},
+    {id:'standing_calf',name:'Standing Calf Raise',sets:[{type:'work',label:'SET 1',repMin:8,repMax:15},{type:'work',label:'SET 2',repMin:8,repMax:15},{type:'work',label:'SET 3',repMin:8,repMax:15}],notes:'Montée explosive. Pause 2 sec en bas.',failOk:true,weightStep:2.5},
+    {id:'seated_calf',name:'Seated Calf Raise',sets:[{type:'work',label:'SET 1',repMin:12,repMax:20},{type:'work',label:'SET 2',repMin:12,repMax:20},{type:'work',label:'SET 3',repMin:12,repMax:20}],notes:'Amplitude complète. Pause 2 sec en bas.',failOk:true,weightStep:2.5}
+  ]},
+  upper:{id:'upper',label:'UPPER',day:'Vendredi',focus:'Accent esthétique · Bras · Épaules',duration:65,exercises:[
+    {id:'machine_chest_press',name:'Machine Chest Press',sets:[{type:'work',label:'SET 1',repMin:8,repMax:12},{type:'work',label:'SET 2',repMin:8,repMax:12}],notes:'Coudes à 45°. Volume maintien / progression.',failOk:false,weightStep:2.5},
+    {id:'hammer_high_row',name:'Hammer High Row',sets:[{type:'work',label:'SET 1',repMin:8,repMax:12},{type:'work',label:'SET 2',repMin:8,repMax:12}],notes:'Tirer vers le haut de la poitrine. Coudes hauts. Contraction complète.',failOk:false,weightStep:2.5},
+    {id:'lat_raise_upper',name:'Élévations Latérales',sets:[{type:'work',label:'SET 1',repMin:12,repMax:20},{type:'work',label:'SET 2',repMin:12,repMax:20},{type:'work',label:'SET 3',repMin:12,repMax:20},{type:'work',label:'SET 4',repMin:12,repMax:20}],notes:'Coude légèrement fléchi. Lever avec le coude, pas la main.',failOk:true,weightStep:1},
+    {id:'reverse_pec_deck_upper',name:'Reverse Pec Deck',sets:[{type:'work',label:'SET 1',repMin:12,repMax:20},{type:'work',label:'SET 2',repMin:12,repMax:20}],notes:'Coudes hauts, tirer en arc. Rear delt. Sensation > charge.',failOk:true,weightStep:2.5},
+    {id:'bayesian_curl',name:'Bayesian Curl',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Câble derrière le corps. Étirement max en bas. Contraction complète en haut.',failOk:true,weightStep:2.5},
+    {id:'hammer_curl_upper',name:'Hammer Curl',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Poignet neutre. Pas de balancement.',failOk:true,weightStep:2.5},
+    {id:'overhead_ext',name:'Overhead Extension',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Long chef. Étirement complet en haut. Coudes fixes.',failOk:true,weightStep:2.5},
+    {id:'pushdown_upper',name:'Pushdown',sets:[{type:'work',label:'SET 1',repMin:10,repMax:15},{type:'work',label:'SET 2',repMin:10,repMax:15}],notes:'Coudes collés. Verrouiller en bas 1 sec.',failOk:true,weightStep:2.5}
+  ]}
 };
 
-const SPLIT = ['push','pull','legs','upper'];
-const REST_COMPOUND = 150; // 2min30 compound
-const REST_ISO = 90;       // 90s isolation
+const SPLIT=['push','pull','legs','upper'];
+const REST_COMPOUND=150,REST_ISO=90;
 
-// ══════════════════════════════════════════════════════
-//  STATE
-// ══════════════════════════════════════════════════════
-let S = {
-  week:1,
-  sessionLog:{},
-  progLog:{},
-  sessionActive:false,
-  sessionDay:null,
-  sessionStart:null
-};
+let S={week:1,sessionLog:{},progLog:{},sessionActive:false,sessionDay:null,sessionStart:null};
 
-function loadS(){try{const s=localStorage.getItem('p70');if(s)S={...S,...JSON.parse(s)}}catch(e){}}
-function saveS(){try{localStorage.setItem('p70',JSON.stringify(S))}catch(e){}}
+function loadS(){try{const s=localStorage.getItem('p70_v2');if(s)S={...S,...JSON.parse(s)}}catch(e){}}
+function saveS(){try{localStorage.setItem('p70_v2',JSON.stringify(S))}catch(e){alert('Erreur sauvegarde: '+e.message);}}
 loadS();
 
-// Migration : marquer séances avec sets cochés comme completed
+// Migration
 (function migrate(){
-  let changed=false;
+  let ch=false;
   Object.entries(S.sessionLog).forEach(([k,sess])=>{
-    if(sess.completed) return;
-    if(!sess.sets) return;
-    const hasDone=Object.values(sess.sets).some(sets=>Array.isArray(sets)&&sets.some(s=>s.done&&(s.w||s.weight)&&(s.r||s.reps)));
-    if(hasDone){
-      sess.completed=true;
-      if(!sess.timestamp){const m=k.match(/_W(\d+)$/);sess.timestamp=m?+m[1]*100000:Date.now();}
-      changed=true;
-    }
+    if(sess.completed)return;
+    if(!sess.sets)return;
+    const ok=Object.values(sess.sets).some(sets=>Array.isArray(sets)&&sets.some(s=>s.done&&(s.w||s.weight)&&(s.r||s.reps)));
+    if(ok){sess.completed=true;if(!sess.timestamp){const m=k.match(/_W(\d+)$/);sess.timestamp=m?+m[1]*1e5:Date.now();}ch=true;}
   });
-  if(changed) saveS();
+  if(ch)saveS();
 })();
 
-// ══════════════════════════════════════════════════════
-//  DOUBLE PROGRESSION ENGINE
-// ══════════════════════════════════════════════════════
 function getExHistory(exId){
-  const history=[];
-  Object.entries(S.sessionLog).forEach(([key,sess])=>{
+  const h=[];
+  Object.entries(S.sessionLog).forEach(([k,sess])=>{
     const sets=sess.sets?sess.sets[exId]:null;
-    if(!sets||sets.length===0) return;
+    if(!sets||!sets.length)return;
     const done=sets.filter(s=>s.done&&(s.w||s.weight)&&(s.r||s.reps));
-    if(done.length===0) return;
-    const isCurrent=S.sessionActive&&S.sessionDay&&key===sessKey(S.sessionDay,S.week);
-    if(isCurrent) return;
-    if(history.some(h=>h.key===key)) return;
-    const m=key.match(/_W(\d+)$/);
-    history.push({key,week:m?+m[1]:0,timestamp:sess.timestamp||0,
-      sets:done.map(s=>({w:parseFloat(s.w||s.weight),r:parseInt(s.r||s.reps)}))});
+    if(!done.length)return;
+    if(S.sessionActive&&S.sessionDay&&k===sessKey(S.sessionDay,S.week))return;
+    if(h.some(x=>x.key===k))return;
+    const m=k.match(/_W(\d+)$/);
+    h.push({key:k,week:m?+m[1]:0,timestamp:sess.timestamp||0,sets:done.map(s=>({w:parseFloat(s.w||s.weight),r:parseInt(s.r||s.reps)}))});
   });
-  history.sort((a,b)=>(a.timestamp||a.week*1e5)-(b.timestamp||b.week*1e5));
-  return history;
+  h.sort((a,b)=>(a.timestamp||a.week*1e5)-(b.timestamp||b.week*1e5));
+  return h;
 }
 
 function getProgStatus(exDef){
-  if(!exDef.repMin) return {status:'none'};
+  if(!exDef.repMin)return{status:'none'};
   const hist=getExHistory(exDef.id);
-  if(hist.length===0) return {status:'none'};
+  if(!hist.length)return{status:'none'};
   const last=hist[hist.length-1];
-  const prev=hist.length>=2?hist[hist.length-2]:null;
-  const prev2=hist.length>=3?hist[hist.length-3]:null;
   const ps=last.sets;
-  const allAtTop=ps.every(s=>s.r>=exDef.repMax);
-  const anyBelow=ps.some(s=>s.r<exDef.repMin);
-  let consBelow=0;
-  for(let i=hist.length-1;i>=0;i--){if(hist[i].sets.some(s=>s.r<exDef.repMin))consBelow++;else break;}
+  const allTop=ps.every(s=>s.r>=exDef.repMax);
+  let cBelow=0;
+  for(let i=hist.length-1;i>=0;i--){if(hist[i].sets.some(s=>s.r<exDef.repMin))cBelow++;else break;}
   let stag=false;
-  if(hist.length>=3&&prev&&prev2){
-    const avgW=ps.reduce((a,s)=>a+s.w,0)/ps.length;
-    const pw=prev.sets.reduce((a,s)=>a+s.w,0)/prev.sets.length;
-    const p2w=prev2.sets.reduce((a,s)=>a+s.w,0)/prev2.sets.length;
-    if(Math.abs(avgW-pw)<0.5&&Math.abs(avgW-p2w)<0.5&&!allAtTop)stag=true;
+  if(hist.length>=3){
+    const a=hist[hist.length-1],b=hist[hist.length-2],c=hist[hist.length-3];
+    const wa=a.sets.reduce((s,x)=>s+x.w,0)/a.sets.length;
+    const wb=b.sets.reduce((s,x)=>s+x.w,0)/b.sets.length;
+    const wc=c.sets.reduce((s,x)=>s+x.w,0)/c.sets.length;
+    if(Math.abs(wa-wb)<0.5&&Math.abs(wa-wc)<0.5&&!allTop)stag=true;
   }
-  const avgW=ps.reduce((a,s)=>a+s.w,0)/ps.length;
+  const avgW=ps.reduce((s,x)=>s+x.w,0)/ps.length;
   const minR=Math.min(...ps.map(s=>s.r));
   const nextW=exDef.weightStep?Math.round((avgW+exDef.weightStep)*4)/4:avgW;
-  if(consBelow>=2) return{status:'warn',avgW,minR,icon:'⚠️',title:'Récup insuffisante',
-    desc:'Reps sous le minimum 2x de suite. Ne pas forcer.',target:`Maintenir ${avgW} kg`};
-  if(stag) return{status:'stag',avgW,minR,icon:'🔄',title:'Stagnation',
-    desc:'Même poids × reps depuis 3 séances. Mini-deload ?',target:`Essayer ${avgW} kg × ${exDef.repMax}`};
-  if(allAtTop&&exDef.weightStep) return{status:'up',avgW,minR,icon:'📈',title:'Augmenter la charge !',
-    desc:`Haut de fourchette atteint sur toutes les séries (${exDef.repMax} reps).`,target:`Prochaine séance : ${nextW} kg × ${exDef.repMin} reps`};
-  return{status:'hold',avgW,minR,icon:'➡️',title:'Continue la progression',
-    desc:`Objectif : +1 rep. Haut de fourchette = ${exDef.repMax} reps.`,target:`${avgW} kg × ${minR+1}–${exDef.repMax} reps`};
+  if(cBelow>=2)return{status:'warn',avgW,icon:'⚠️',title:'Récup insuffisante',desc:'Reps sous le minimum 2x de suite. Ne pas forcer.',target:`Maintenir ${avgW} kg`};
+  if(stag)return{status:'stag',avgW,icon:'🔄',title:'Stagnation',desc:'Même poids × reps depuis 3 séances.',target:`Essayer ${avgW} kg × ${exDef.repMax}`};
+  if(allTop&&exDef.weightStep)return{status:'up',avgW,icon:'📈',title:'Augmenter la charge !',desc:`Haut de fourchette atteint (${exDef.repMax} reps).`,target:`Prochaine séance : ${nextW} kg × ${exDef.repMin} reps`};
+  return{status:'hold',avgW,icon:'➡️',title:'Continue la progression',desc:`Objectif : +1 rep. Cible ${exDef.repMax} reps.`,target:`${avgW} kg × ${minR+1}–${exDef.repMax} reps`};
 }
 
-function getSuggestedSets(exDef){
+function getSugg(exDef){
   const hist=getExHistory(exDef.id);
-  if(hist.length===0) return exDef.sets.map(()=>({w:'',r:''}));
+  if(!hist.length)return exDef.sets.map(()=>({w:'',r:''}));
   const last=hist[hist.length-1];
   const ps=getProgStatus(exDef);
   return exDef.sets.map((sd,i)=>{
     const src=last.sets[i]||last.sets[last.sets.length-1];
-    if(!src) return{w:'',r:''};
+    if(!src)return{w:'',r:''};
     let w=src.w,r=src.r;
-    if(ps.status==='up'&&exDef.weightStep){w=Math.round((w+exDef.weightStep)*4)/4;r=sd.repMin||src.r;}
-    else if(ps.status!=='warn'&&r<(sd.repMax||99)) r=r+1;
+    if(ps.status==='up'&&exDef.weightStep){w=Math.round((w+exDef.weightStep)*4)/4;r=sd.repMin||r;}
+    else if(ps.status!=='warn'&&r<(sd.repMax||99))r++;
     return{w:String(w),r:String(r)};
   });
 }
 
-// ══════════════════════════════════════════════════════
-//  SESSION DATA
-// ══════════════════════════════════════════════════════
-function sessKey(dayId,week){return `${dayId}_W${week}`;}
+function sessKey(d,w){return `${d}_W${w}`;}
 
-function getOrInitSession(dayId,week){
-  const k=sessKey(dayId,week);
-  const prog=PROGRAM[dayId];
+function getOrInit(dayId,week){
+  const k=sessKey(dayId,week),prog=PROGRAM[dayId];
   if(!S.sessionLog[k]){
     const sets={};
-    prog.exercises.forEach(ex=>{
-      const sugg=getSuggestedSets(ex);
-      sets[ex.id]=ex.sets.map((sd,i)=>({w:sugg[i].w,r:sugg[i].r,done:false,label:sd.label,type:sd.type,repMin:sd.repMin,repMax:sd.repMax}));
-    });
+    prog.exercises.forEach(ex=>{const sg=getSugg(ex);sets[ex.id]=ex.sets.map((sd,i)=>({w:sg[i].w,r:sg[i].r,done:false,label:sd.label,type:sd.type,repMin:sd.repMin,repMax:sd.repMax}));});
     S.sessionLog[k]={sets,completed:false,timestamp:Date.now()};
   } else {
     prog.exercises.forEach(ex=>{
-      if(!S.sessionLog[k].sets[ex.id]||S.sessionLog[k].sets[ex.id].length===0){
-        const sugg=getSuggestedSets(ex);
-        S.sessionLog[k].sets[ex.id]=ex.sets.map((sd,i)=>({w:sugg[i].w,r:sugg[i].r,done:false,label:sd.label,type:sd.type,repMin:sd.repMin,repMax:sd.repMax}));
+      if(!S.sessionLog[k].sets[ex.id]||!S.sessionLog[k].sets[ex.id].length){
+        const sg=getSugg(ex);S.sessionLog[k].sets[ex.id]=ex.sets.map((sd,i)=>({w:sg[i].w,r:sg[i].r,done:false,label:sd.label,type:sd.type,repMin:sd.repMin,repMax:sd.repMax}));
       }
     });
   }
   return S.sessionLog[k];
 }
 
-// ══════════════════════════════════════════════════════
-//  TIMERS
-// ══════════════════════════════════════════════════════
+// TIMERS
 let sessIv=null;
 function startSessTimer(){
-  if(sessIv) clearInterval(sessIv);
-  sessIv=setInterval(()=>{
-    const el=document.getElementById('sessTimerVal');
-    if(!el||!S.sessionStart) return;
-    el.textContent=fmtTime(Math.floor((Date.now()-S.sessionStart)/1000));
-  },1000);
+  if(sessIv)clearInterval(sessIv);
+  sessIv=setInterval(()=>{const el=document.getElementById('sessTimerVal');if(el&&S.sessionStart)el.textContent=fmt(Math.floor((Date.now()-S.sessionStart)/1000));},1000);
 }
-function fmtTime(s){const m=Math.floor(s/60),sc=s%60;return `${m}:${String(sc).padStart(2,'0')}`;}
+function fmt(s){return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;}
 document.addEventListener('visibilitychange',()=>{
   if(!document.hidden&&S.sessionActive&&S.sessionStart){
-    const el=document.getElementById('sessTimerVal');
-    if(el) el.textContent=fmtTime(Math.floor((Date.now()-S.sessionStart)/1000));
-    if(restEndTime){
-      const rem=Math.max(0,Math.round((restEndTime-Date.now())/1000));
-      document.getElementById('restNum').textContent=rem;
-      document.getElementById('restFill').style.width=(rem/restTotal*100)+'%';
-    }
+    const el=document.getElementById('sessTimerVal');if(el)el.textContent=fmt(Math.floor((Date.now()-S.sessionStart)/1000));
+    if(restEnd){const r=Math.max(0,Math.round((restEnd-Date.now())/1000));document.getElementById('restNum').textContent=r;document.getElementById('restFill').style.width=(r/restTotal*100)+'%';}
   }
 });
 
-let restIv=null,restTotal=REST_ISO,restEndTime=null;
-function startRest(isCompound){
-  restTotal=isCompound?REST_COMPOUND:REST_ISO;
-  restEndTime=Date.now()+restTotal*1000;
+let restIv=null,restTotal=REST_ISO,restEnd=null;
+function startRest(compound){
+  restTotal=compound?REST_COMPOUND:REST_ISO;restEnd=Date.now()+restTotal*1000;
   document.getElementById('restBar').classList.add('show');
   document.getElementById('restNum').textContent=restTotal;
   document.getElementById('restFill').style.width='100%';
-  if(restIv) clearInterval(restIv);
+  if(restIv)clearInterval(restIv);
   restIv=setInterval(()=>{
-    const rem=Math.max(0,Math.round((restEndTime-Date.now())/1000));
-    document.getElementById('restNum').textContent=rem;
-    document.getElementById('restFill').style.width=(rem/restTotal*100)+'%';
-    if(rem<=0){clearInterval(restIv);skipRest();if(navigator.vibrate)navigator.vibrate([200,100,200]);}
+    const r=Math.max(0,Math.round((restEnd-Date.now())/1000));
+    document.getElementById('restNum').textContent=r;
+    document.getElementById('restFill').style.width=(r/restTotal*100)+'%';
+    if(r<=0){clearInterval(restIv);skipRest();if(navigator.vibrate)navigator.vibrate([200,100,200]);}
   },1000);
 }
-function skipRest(){clearInterval(restIv);restEndTime=null;document.getElementById('restBar').classList.remove('show');}
+function skipRest(){clearInterval(restIv);restEnd=null;document.getElementById('restBar').classList.remove('show');}
 
-// ══════════════════════════════════════════════════════
-//  TABS
-// ══════════════════════════════════════════════════════
 function showTab(id){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+id));
-  if(id==='today') renderToday();
-  if(id==='progress') renderProgress();
-  if(id==='plan') renderPlan();
-  if(id==='rules') renderRules();
+  if(id==='today')renderToday();
+  if(id==='progress')renderProgress();
+  if(id==='plan')renderPlan();
 }
 
-// ══════════════════════════════════════════════════════
-//  TODAY VIEW
-// ══════════════════════════════════════════════════════
 function renderToday(){
   const c=document.getElementById('todayContent');
   if(!S.sessionActive){
-    let html=`<div class="week-sel">
-      <button class="week-btn" onclick="changeWeek(-1)">‹</button>
-      <div class="week-disp">Semaine ${S.week}</div>
-      <button class="week-btn" onclick="changeWeek(1)">›</button>
-    </div>`;
-    // Global alerts
+    let html=`<div class="week-sel"><button class="week-btn" onclick="changeWeek(-1)">‹</button><div class="week-disp">Semaine ${S.week}</div><button class="week-btn" onclick="changeWeek(1)">›</button></div>`;
     const alerts=[];
-    SPLIT.forEach(dayId=>{PROGRAM[dayId].exercises.forEach(ex=>{
-      const ps=getProgStatus(ex);
-      if(ps.status==='up') alerts.push(`<b>${ex.name}</b> (${PROGRAM[dayId].label}) — ${ps.target}`);
-      if(ps.status==='warn') alerts.push(`⚠️ <b>${ex.name}</b> — vérifier récupération`);
-    });});
-    if(alerts.length){
-      html+=`<div class="global-alert"><strong>📈 Progression en attente</strong>${alerts.map(a=>`<div>· ${a}</div>`).join('')}</div>`;
-    }
+    SPLIT.forEach(d=>PROGRAM[d].exercises.forEach(ex=>{const ps=getProgStatus(ex);if(ps.status==='up')alerts.push(`<b>${ex.name}</b> (${PROGRAM[d].label}) — ${ps.target}`);if(ps.status==='warn')alerts.push(`⚠️ <b>${ex.name}</b> — vérifier récupération`);}));
+    if(alerts.length)html+=`<div class="global-alert"><strong>📈 Progression en attente</strong>${alerts.map(a=>`<div>· ${a}</div>`).join('')}</div>`;
     html+=`<div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:10px">Choisir la séance</div>`;
-    SPLIT.forEach(dayId=>{
-      const day=PROGRAM[dayId];
-      const k=sessKey(dayId,S.week);
-      const done=S.sessionLog[k]?.completed;
+    SPLIT.forEach(d=>{
+      const day=PROGRAM[d],k=sessKey(d,S.week),done=S.sessionLog[k]?.completed;
       const ups=day.exercises.filter(ex=>getProgStatus(ex).status==='up').length;
-      html+=`<button class="day-card ${done?'done':''}" onclick="startSession('${dayId}')">
-        <div class="day-card-left">
-          <div class="day-card-title">${day.label}</div>
-          <div class="day-card-sub">${day.day} · ${day.focus}</div>
-        </div>
-        <div class="day-card-right">
-          ${done?`<div style="color:var(--green);font-size:18px">✓</div>`:`<div class="day-card-dur">~${day.duration} min</div>`}
-          ${ups>0?`<div class="day-card-badge">+CHARGE ×${ups}</div>`:''}
-        </div>
-      </button>`;
+      html+=`<button class="day-card ${done?'done':''}" onclick="startSession('${d}')"><div><div class="day-card-title">${day.label}</div><div class="day-card-sub">${day.day} · ${day.focus}</div></div><div class="day-card-right">${done?'<div style="color:var(--green);font-size:18px">✓</div>':`<div class="day-card-dur">~${day.duration} min</div>`}${ups?`<div class="day-card-badge">+CHARGE ×${ups}</div>`:''}</div></button>`;
     });
-    c.innerHTML=html;
-    return;
+    c.innerHTML=html;return;
   }
 
-  // ── SESSION ACTIVE ──
-  const day=PROGRAM[S.sessionDay];
-  const sess=getOrInitSession(S.sessionDay,S.week);
+  const day=PROGRAM[S.sessionDay],sess=getOrInit(S.sessionDay,S.week);
   const elapsed=S.sessionStart?Math.floor((Date.now()-S.sessionStart)/1000):0;
-
-  let html=`<div class="sess-head">
-    <div>
-      <div class="sess-title">${day.label}</div>
-      <div class="sess-focus">${day.focus}</div>
-    </div>
-    <div class="sess-timer-box">
-      <div class="sess-timer-val" id="sessTimerVal">${fmtTime(elapsed)}</div>
-      <div class="sess-timer-lbl">Durée</div>
-    </div>
-  </div>`;
+  let html=`<div class="sess-head"><div><div class="sess-title">${day.label}</div><div class="sess-focus">${day.focus}</div></div><div class="sess-timer-box"><div class="sess-timer-val" id="sessTimerVal">${fmt(elapsed)}</div><div class="sess-timer-lbl">Durée</div></div></div>`;
 
   day.exercises.forEach((ex,ei)=>{
-    const sets=sess.sets[ex.id]||[];
-    const doneCount=sets.filter(s=>s.done).length;
-    const ps=getProgStatus(ex);
-    const isCompound=['top','backoff'].includes(ex.sets[0]?.type);
+    const sets=sess.sets[ex.id]||[],doneC=sets.filter(s=>s.done).length;
+    const ps=getProgStatus(ex),isCompound=ex.sets[0]?.type!=='work';
     let badge='';
-    if(ps.status==='up') badge=`<span class="ex-prog-badge up">↑ Charge</span>`;
-    else if(ps.status==='warn') badge=`<span class="ex-prog-badge warn">⚠ Récup</span>`;
-    else if(ps.status==='stag') badge=`<span class="ex-prog-badge stag">≈ Stag</span>`;
-    else if(ps.status==='hold'&&ps.avgW) badge=`<span class="ex-prog-badge hold">→ Rep+</span>`;
-
-    html+=`<div class="ex-block ${ei===0?'open':''}" id="exb_${ex.id}">
-      <div class="ex-head" onclick="toggleEx('${ex.id}')">
-        <span class="ex-num">${String(ei+1).padStart(2,'0')}</span>
-        <span class="ex-name">${ex.name}</span>
-        ${badge}
-        <span class="ex-counter" id="exc_${ex.id}">${doneCount}/${sets.length}</span>
-        <span class="ex-chev">▾</span>
-      </div>
-      <div class="ex-body">`;
-
-    // Prog banner
-    if(ps.status!=='none'){
-      const cl={up:'up',hold:'hold',warn:'warn',stag:'stag'}[ps.status];
-      html+=`<div class="prog-banner ${cl}">
-        <div class="pb-icon">${ps.icon}</div>
-        <div><div class="pb-title ${cl}">${ps.title}</div>
-        <div class="pb-desc">${ps.desc}</div>
-        <div class="pb-target">${ps.target}</div></div>
-      </div>`;
-    }
-
-    // Meta
-    html+=`<div class="ex-meta">
-      ${ex.failOk?'<span class="meta-tag fail">Échec OK</span>':'<span class="meta-tag">RIR 1</span>'}
-      ${isCompound?'<span class="meta-tag">Repos 2\'30</span>':'<span class="meta-tag">Repos 90s</span>'}
-      ${ex.notes?`<span class="meta-tag orange">${ex.notes}</span>`:''}
-    </div>`;
-
-    // Sets table
-    html+=`<table class="sets-tbl"><thead><tr>
-      <th style="width:60px">Série</th><th>Poids · Reps</th><th style="width:42px">✓</th>
-    </tr></thead><tbody>`;
+    if(ps.status==='up')badge=`<span class="ex-prog-badge up">↑ Charge</span>`;
+    else if(ps.status==='warn')badge=`<span class="ex-prog-badge warn">⚠ Récup</span>`;
+    else if(ps.status==='stag')badge=`<span class="ex-prog-badge stag">≈ Stag</span>`;
+    else if(ps.status==='hold'&&ps.avgW)badge=`<span class="ex-prog-badge hold">→ Rep+</span>`;
+    html+=`<div class="ex-block ${ei===0?'open':''}" id="exb_${ex.id}"><div class="ex-head" onclick="toggleEx('${ex.id}')"><span class="ex-num">${String(ei+1).padStart(2,'0')}</span><span class="ex-name">${ex.name}</span>${badge}<span class="ex-counter" id="exc_${ex.id}">${doneC}/${sets.length}</span><span class="ex-chev">▾</span></div><div class="ex-body">`;
+    if(ps.status!=='none'){const cl={up:'up',hold:'hold',warn:'warn',stag:'stag'}[ps.status];html+=`<div class="prog-banner ${cl}"><div class="pb-icon">${ps.icon}</div><div><div class="pb-title ${cl}">${ps.title}</div><div class="pb-desc">${ps.desc}</div><div class="pb-target">${ps.target}</div></div></div>`;}
+    html+=`<div class="ex-meta">${ex.failOk?'<span class="meta-tag fail">Échec OK</span>':'<span class="meta-tag">RIR 1</span>'}<span class="meta-tag">${isCompound?'Repos 2\'30':'Repos 90s'}</span>${ex.notes?`<span class="meta-tag orange">${ex.notes}</span>`:''}</div>`;
+    html+=`<table class="sets-tbl"><thead><tr><th style="width:60px">Série</th><th>Poids · Reps</th><th style="width:42px">✓</th></tr></thead><tbody>`;
     sets.forEach((set,si)=>{
       const rng=set.repMin?`${set.repMin}–${set.repMax}`:'';
-      html+=`<tr class="set-row">
-        <td><span class="set-badge ${set.type}">${set.label}<span class="rng">${rng}</span></span></td>
-        <td><div class="set-inp-grp">
-          <input class="set-inp wt" type="number" inputmode="decimal" placeholder="kg" value="${set.w||''}"
-            onchange="updateSet('${ex.id}',${si},'w',this.value)" onfocus="this.select()"/>
-          <span class="set-sep">×</span>
-          <input class="set-inp" type="number" inputmode="numeric" placeholder="reps" value="${set.r||''}"
-            onchange="updateSet('${ex.id}',${si},'r',this.value)" onfocus="this.select()"/>
-        </div></td>
-        <td style="text-align:right">
-          <button class="done-btn ${set.done?'done':''}" data-si="${si}" data-compound="${isCompound?1:0}"
-            onclick="toggleDone('${ex.id}',${si},${isCompound?1:0})">${set.done?'✓':'○'}</button>
-        </td>
-      </tr>`;
+      html+=`<tr class="set-row"><td><span class="set-badge ${set.type}">${set.label}<span class="rng">${rng}</span></span></td><td><div class="set-inp-grp"><input class="set-inp wt" type="number" inputmode="decimal" placeholder="kg" value="${set.w||''}" onchange="updateSet('${ex.id}',${si},'w',this.value)" onfocus="this.select()"/><span class="set-sep">×</span><input class="set-inp" type="number" inputmode="numeric" placeholder="reps" value="${set.r||''}" onchange="updateSet('${ex.id}',${si},'r',this.value)" onfocus="this.select()"/></div></td><td style="text-align:right"><button class="done-btn ${set.done?'done':''}" data-si="${si}" onclick="toggleDone('${ex.id}',${si},${isCompound?1:0})">${set.done?'✓':'○'}</button></td></tr>`;
     });
     html+=`</tbody></table>`;
-
-    // Prev best
     const hist=getExHistory(ex.id);
-    if(hist.length>0){
-      const last=hist[hist.length-1];
-      const detail=last.sets.map(s=>`<span>${s.w}kg×${s.r}</span>`).join('<span style="color:var(--t3)"> · </span>');
-      html+=`<div class="prev-best">
-        <div class="prev-best-lbl">Dernière fois — S${last.week}</div>
-        <div class="prev-best-sets">${detail}</div>
-      </div>`;
-    }
-
+    if(hist.length){const last=hist[hist.length-1];const detail=last.sets.map(s=>`<span style="color:var(--text)">${s.w}kg×${s.r}</span>`).join('<span style="color:var(--t3)"> · </span>');html+=`<div class="prev-best"><div class="prev-best-lbl">Dernière fois — S${last.week}</div><div style="font-size:13px;margin-top:2px;line-height:1.6">${detail}</div></div>`;}
     html+=`</div></div>`;
   });
 
   html+=`<button class="btn-end" onclick="endSession()">Terminer la séance</button>
-  <div class="btn-abandon-wrap"><button class="btn-abandon" onclick="showAbandon()">Abandonner sans enregistrer</button></div>
-  <div class="abandon-confirm" id="abandonConfirm">
-    <p>Les séries cochées ne seront pas enregistrées.</p>
-    <div class="abandon-btns">
-      <button class="abandon-cancel" onclick="hideAbandon()">Annuler</button>
-      <button class="abandon-go" onclick="abandonSession()">Abandonner</button>
-    </div>
-  </div>`;
-
-  c.innerHTML=html;
-  startSessTimer();
+  <div id="abanWrap" style="text-align:center;margin-bottom:20px"><button onclick="showAban()" style="background:none;border:none;color:var(--t3);font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:8px;cursor:pointer">Abandonner sans enregistrer</button></div>
+  <div class="abandon-confirm" id="abanConfirm"><p>Les séries cochées ne seront pas enregistrées.</p><div class="abandon-btns"><button class="abandon-cancel" onclick="hideAban()">Annuler</button><button class="abandon-go" onclick="doAban()">Abandonner</button></div></div>`;
+  c.innerHTML=html;startSessTimer();
 }
 
 function toggleEx(id){document.getElementById('exb_'+id)?.classList.toggle('open');}
-
-function updateSet(exId,si,field,val){
-  const k=sessKey(S.sessionDay,S.week);
-  if(!S.sessionLog[k]) return;
-  S.sessionLog[k].sets[exId][si][field]=val;
+function updateSet(exId,si,f,v){const k=sessKey(S.sessionDay,S.week);if(!S.sessionLog[k])return;S.sessionLog[k].sets[exId][si][f]=v;saveS();}
+function toggleDone(exId,si,compound){
+  const k=sessKey(S.sessionDay,S.week);if(!S.sessionLog[k])return;
+  const set=S.sessionLog[k].sets[exId][si];set.done=!set.done;
+  if(set.done&&set.w&&set.r){if(!S.progLog[exId])S.progLog[exId]=[];S.progLog[exId].push({week:S.week,w:parseFloat(set.w),r:parseInt(set.r),date:Date.now()});}
+  else if(!set.done&&S.progLog[exId])S.progLog[exId]=S.progLog[exId].filter(e=>!(e.week===S.week&&e.w===parseFloat(set.w)&&e.r===parseInt(set.r)));
   saveS();
+  const btn=document.querySelector(`#exb_${exId} .done-btn[data-si="${si}"]`);if(btn){btn.classList.toggle('done',set.done);btn.textContent=set.done?'✓':'○';}
+  const sets=S.sessionLog[k].sets[exId];const ctr=document.getElementById('exc_'+exId);if(ctr)ctr.textContent=`${sets.filter(s=>s.done).length}/${sets.length}`;
+  if(set.done)startRest(compound);
 }
-
-function toggleDone(exId,si,isCompound){
-  const k=sessKey(S.sessionDay,S.week);
-  if(!S.sessionLog[k]) return;
-  const set=S.sessionLog[k].sets[exId][si];
-  set.done=!set.done;
-  if(set.done&&set.w&&set.r){
-    if(!S.progLog[exId]) S.progLog[exId]=[];
-    S.progLog[exId].push({week:S.week,w:parseFloat(set.w),r:parseInt(set.r),date:Date.now()});
-  } else if(!set.done&&S.progLog[exId]){
-    S.progLog[exId]=S.progLog[exId].filter(e=>!(e.week===S.week&&e.w===parseFloat(set.w)&&e.r===parseInt(set.r)));
-  }
-  saveS();
-  // DOM update in place
-  const btn=document.querySelector(`#exb_${exId} .done-btn[data-si="${si}"]`);
-  if(btn){btn.classList.toggle('done',set.done);btn.textContent=set.done?'✓':'○';}
-  const sets=S.sessionLog[k].sets[exId];
-  const ctr=document.getElementById('exc_'+exId);
-  if(ctr) ctr.textContent=`${sets.filter(s=>s.done).length}/${sets.length}`;
-  if(set.done) startRest(isCompound);
-}
-
 function changeWeek(d){S.week=Math.max(1,S.week+d);document.getElementById('hdrWeek').textContent=`S${S.week}`;saveS();renderToday();}
-
-function startSession(dayId){
-  S.sessionActive=true;S.sessionDay=dayId;S.sessionStart=Date.now();
-  getOrInitSession(dayId,S.week);saveS();renderToday();
-}
-
+function startSession(d){S.sessionActive=true;S.sessionDay=d;S.sessionStart=Date.now();getOrInit(d,S.week);saveS();renderToday();}
 function endSession(){
   const k=sessKey(S.sessionDay,S.week);
   if(k&&S.sessionLog[k]){
-    const elapsed=Math.floor((Date.now()-S.sessionStart)/1000);
-    S.sessionLog[k].completed=true;S.sessionLog[k].duration=elapsed;S.sessionLog[k].timestamp=Date.now();
-    let doneSets=0,totalVol=0,prs=0;
-    const day=PROGRAM[S.sessionDay];
-    day.exercises.forEach(ex=>{
-      const hist=getExHistory(ex.id);
-      const prevBest=hist.length>1?Math.max(...hist.slice(0,-1).map(h=>Math.max(...h.sets.map(s=>s.w)))):0;
-      (S.sessionLog[k].sets[ex.id]||[]).forEach(s=>{
-        if(s.done){doneSets++;totalVol+=(parseFloat(s.w)||0)*(parseInt(s.r)||0);}
-        if(s.done&&parseFloat(s.w)>prevBest) prs++;
-      });
+    const el=Math.floor((Date.now()-S.sessionStart)/1000);
+    S.sessionLog[k].completed=true;S.sessionLog[k].duration=el;S.sessionLog[k].timestamp=Date.now();
+    let ds=0,vol=0,prs=0;
+    PROGRAM[S.sessionDay].exercises.forEach(ex=>{
+      const hist=getExHistory(ex.id);const pb=hist.length>1?Math.max(...hist.slice(0,-1).map(h=>Math.max(...h.sets.map(s=>s.w)))):0;
+      (S.sessionLog[k].sets[ex.id]||[]).forEach(s=>{if(s.done){ds++;vol+=(parseFloat(s.w)||0)*(parseInt(s.r)||0);}if(s.done&&parseFloat(s.w)>pb)prs++;});
     });
-    document.getElementById('coDur').textContent=fmtTime(elapsed);
-    document.getElementById('coSets').textContent=doneSets;
-    document.getElementById('coVol').textContent=Math.round(totalVol);
-    document.getElementById('coPRs').textContent=prs;
+    saveS();
+    document.getElementById('coDur').textContent=fmt(el);document.getElementById('coSets').textContent=ds;document.getElementById('coVol').textContent=Math.round(vol);document.getElementById('coPRs').textContent=prs;
     document.getElementById('coDate').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
     document.getElementById('completeOv').classList.add('show');
   }
-  if(sessIv) clearInterval(sessIv);
-  S.sessionActive=false;S.sessionDay=null;S.sessionStart=null;saveS();
+  if(sessIv)clearInterval(sessIv);S.sessionActive=false;S.sessionDay=null;S.sessionStart=null;saveS();
 }
-
 function closeComplete(){document.getElementById('completeOv').classList.remove('show');renderToday();}
-
-function showAbandon(){document.getElementById('abandonConfirm').style.display='block';document.querySelector('.btn-abandon-wrap').style.display='none';}
-function hideAbandon(){document.getElementById('abandonConfirm').style.display='none';document.querySelector('.btn-abandon-wrap').style.display='block';}
-function abandonSession(){
-  const k=sessKey(S.sessionDay,S.week);
-  delete S.sessionLog[k];
-  Object.keys(S.progLog).forEach(id=>{
-    S.progLog[id]=(S.progLog[id]||[]).filter(e=>e.date<S.sessionStart);
-    if(!S.progLog[id].length) delete S.progLog[id];
-  });
-  if(sessIv) clearInterval(sessIv);
-  S.sessionActive=false;S.sessionDay=null;S.sessionStart=null;saveS();renderToday();
+function showAban(){document.getElementById('abanConfirm').style.display='block';document.getElementById('abanWrap').style.display='none';}
+function hideAban(){document.getElementById('abanConfirm').style.display='none';document.getElementById('abanWrap').style.display='block';}
+function doAban(){
+  const k=sessKey(S.sessionDay,S.week);delete S.sessionLog[k];
+  Object.keys(S.progLog).forEach(id=>{S.progLog[id]=(S.progLog[id]||[]).filter(e=>e.date<S.sessionStart);if(!S.progLog[id].length)delete S.progLog[id];});
+  if(sessIv)clearInterval(sessIv);S.sessionActive=false;S.sessionDay=null;S.sessionStart=null;saveS();renderToday();
 }
 
-// ══════════════════════════════════════════════════════
-//  PROGRESS VIEW
-// ══════════════════════════════════════════════════════
 function renderProgress(){
-  const c=document.getElementById('progressContent');
-  let html='',hasData=false;
-  SPLIT.forEach(dayId=>{
-    const day=PROGRAM[dayId];
-    let dHtml='';
+  const c=document.getElementById('progressContent');let html='',has=false;
+  SPLIT.forEach(d=>{
+    const day=PROGRAM[d];let dh='';
     day.exercises.forEach(ex=>{
-      if(!ex.repMin) return;
-      const hist=getExHistory(ex.id);
-      if(hist.length===0) return;
-      hasData=true;
-      const ps=getProgStatus(ex);
-      const dotColor={up:'var(--green)',hold:'var(--blue)',warn:'var(--orange)',stag:'var(--red)',none:'var(--t3)'}[ps.status];
-      const byWeek={};
-      hist.forEach(h=>{const bw=Math.max(...h.sets.map(s=>s.w));const br=h.sets.find(s=>s.w===bw)?.r||0;if(!byWeek[h.week]||bw>byWeek[h.week].w)byWeek[h.week]={w:bw,r:br};});
-      const weeks=Object.keys(byWeek).sort((a,b)=>+a-+b);
-      const maxW=Math.max(...weeks.map(w=>byWeek[w].w));
-      dHtml+=`<div class="prog-card">
-        <div class="prog-ex-head">
-          <div class="prog-ex-name">${ex.name}</div>
-          <div class="prog-dot" style="background:${dotColor}"></div>
-        </div>
-        <div class="prog-rows">
-          ${weeks.map(w=>{const e=byWeek[w];const pct=maxW>0?(e.w/maxW)*100:0;const isPR=e.w===maxW&&weeks.indexOf(w)===weeks.length-1;
-            return `<div class="prog-row">
-              <div class="prog-wk">S${w}</div>
-              <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${pct}%"></div></div>
-              <div class="prog-val">${e.w}kg×${e.r}${isPR?'<span class="pr-tag">PR</span>':''}</div>
-            </div>`;}).join('')}
-        </div>
+      if(!ex.repMin)return;const hist=getExHistory(ex.id);if(!hist.length)return;has=true;
+      const ps=getProgStatus(ex);const dc={up:'var(--green)',hold:'var(--blue)',warn:'var(--orange)',stag:'var(--red)',none:'var(--t3)'}[ps.status];
+      const bw={};hist.forEach(h=>{const m=Math.max(...h.sets.map(s=>s.w));const r=h.sets.find(s=>s.w===m)?.r||0;if(!bw[h.week]||m>bw[h.week].w)bw[h.week]={w:m,r};});
+      const wks=Object.keys(bw).sort((a,b)=>+a-+b);const mx=Math.max(...wks.map(w=>bw[w].w));
+      dh+=`<div class="prog-card"><div class="prog-ex-head"><div class="prog-ex-name">${ex.name}</div><div class="prog-dot" style="background:${dc}"></div></div>
+        <div class="prog-rows">${wks.map(w=>{const e=bw[w];const p=mx>0?(e.w/mx)*100:0;const pr=e.w===mx&&wks.indexOf(w)===wks.length-1;return `<div class="prog-row"><div class="prog-wk">S${w}</div><div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:${p}%"></div></div><div class="prog-val">${e.w}kg×${e.r}${pr?'<span class="pr-tag">PR</span>':''}</div></div>`;}).join('')}</div>
         ${ps.status!=='none'?`<div class="prog-next">${ps.icon} <strong>${ps.title}</strong> — ${ps.target}</div>`:''}
         <button class="hist-toggle" onclick="toggleHist('hd_${ex.id}')">Détail par série <span id="hd_${ex.id}_chev">▾</span></button>
-        <div class="hist-detail" id="hd_${ex.id}">
-          <table class="hist-tbl">
-            <thead><tr><th>S</th>${(hist[0]?.sets||[]).map((_,i)=>`<th>S${i+1}</th>`).join('')}</tr></thead>
-            <tbody>${hist.map(h=>`<tr><td style="color:var(--t3)">S${h.week}</td>${h.sets.map(s=>`<td>${s.w}<span style="color:var(--t3);font-size:9px">×</span>${s.r}</td>`).join('')}</tr>`).join('')}</tbody>
-          </table>
-        </div>
+        <div class="hist-detail" id="hd_${ex.id}"><table class="hist-tbl"><thead><tr><th>S</th>${(hist[0]?.sets||[]).map((_,i)=>`<th>S${i+1}</th>`).join('')}</tr></thead><tbody>${hist.map(h=>`<tr><td style="color:var(--t3)">S${h.week}</td>${h.sets.map(s=>`<td>${s.w}<span style="color:var(--t3);font-size:9px">×</span>${s.r}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
       </div>`;
     });
-    if(dHtml) html+=`<div class="prog-sec-title">${day.label} — ${day.focus}</div>${dHtml}`;
+    if(dh)html+=`<div class="prog-sec-title">${day.label} — ${day.focus}</div>${dh}`;
   });
-  if(!hasData) html=`<div style="text-align:center;padding:60px 16px;color:var(--t3)">
-    <div style="font-size:44px;margin-bottom:14px">📊</div>
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t2)">Pas encore de données</div>
-    <div style="font-size:12px;margin-top:8px;line-height:1.5">Fais ta première séance.<br>La progression apparaîtra ici.</div>
-  </div>`;
+  if(!has)html=`<div style="text-align:center;padding:60px 16px;color:var(--t3)"><div style="font-size:44px;margin-bottom:14px">📊</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t2)">Pas encore de données</div><div style="font-size:12px;margin-top:8px;line-height:1.5">Fais ta première séance.<br>La progression apparaîtra ici.</div></div>`;
   c.innerHTML=html;
 }
+function toggleHist(id){const el=document.getElementById(id),ch=document.getElementById(id+'_chev');if(!el)return;const o=el.style.display==='none'||!el.style.display;el.style.display=o?'block':'none';if(ch)ch.textContent=o?'▴':'▾';}
 
-function toggleHist(id){
-  const el=document.getElementById(id);const chev=document.getElementById(id+'_chev');
-  if(!el) return;const open=el.style.display==='none'||!el.style.display;
-  el.style.display=open?'block':'none';if(chev)chev.textContent=open?'▴':'▾';
-}
-
-// ══════════════════════════════════════════════════════
-//  PLAN VIEW
-// ══════════════════════════════════════════════════════
 function renderPlan(){
   const c=document.getElementById('planContent');
-  let html=`<div class="plan-banner"><strong>⚡ Double Progression</strong>
-    Atteindre le haut de la fourchette sur toutes les séries → augmenter la charge. Top set + back-off sur les compound principaux.
-  </div>`;
-  SPLIT.forEach(dayId=>{
-    const day=PROGRAM[dayId];
-    html+=`<div class="plan-card" id="pd_${dayId}">
-      <button class="plan-head" onclick="document.getElementById('pd_${dayId}').classList.toggle('open')">
-        <div>
-          <div class="plan-day-title">${day.label}</div>
-          <div style="font-size:11px;color:var(--t2);margin-top:2px">${day.day} · ~${day.duration} min</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span class="plan-tag">${day.focus}</span>
-          <span class="plan-chev">▾</span>
-        </div>
-      </button>
-      <div class="plan-body">
-        ${day.exercises.map((ex,ei)=>`
-          <div class="plan-ex-row">
-            <span class="plan-ex-num">${String(ei+1).padStart(2,'0')}</span>
-            <div>
-              <div class="plan-ex-name">${ex.name}</div>
-              <div class="plan-ex-desc">
-                ${ex.sets.map(s=>`${s.label} · ${s.repMin?s.repMin+'–'+s.repMax:'—'}`).join(' · ')}
-                ${ex.notes?' — '+ex.notes:''}
-                ${ex.failOk?' · 🔴 Échec OK':''}
-              </div>
-            </div>
-          </div>`).join('')}
-      </div>
-    </div>`;
+  let html=`<div class="plan-banner"><strong>⚡ Double Progression</strong>Atteindre le haut de la fourchette → augmenter la charge. Top set + back-off sur les compound.</div>`;
+  SPLIT.forEach(d=>{
+    const day=PROGRAM[d];
+    html+=`<div class="plan-card" id="pd_${d}"><button class="plan-head" onclick="document.getElementById('pd_${d}').classList.toggle('open')"><div><div class="plan-day-title">${day.label}</div><div style="font-size:11px;color:var(--t2);margin-top:2px">${day.day} · ~${day.duration} min · ${day.exercises.length} exercices</div></div><div style="display:flex;align-items:center;gap:8px"><span class="plan-tag">${day.focus}</span><span class="plan-chev">▾</span></div></button>
+    <div class="plan-body">${day.exercises.map((ex,ei)=>`<div class="plan-ex-row"><span class="plan-ex-num">${String(ei+1).padStart(2,'0')}</span><div style="flex:1"><div class="plan-ex-name">${ex.name}</div><div class="plan-ex-desc" style="margin-bottom:2px">${ex.sets.map(s=>`<span style="color:var(--accent2);font-weight:600">${s.label}</span> ${s.repMin?s.repMin+'–'+s.repMax+' reps':'—'}`).join(' · ')}</div><div class="plan-ex-desc">${ex.notes}${ex.failOk?' · <span style="color:var(--red)">Échec OK</span>':''}</div></div></div>`).join('')}</div></div>`;
   });
   c.innerHTML=html;
 }
 
-// ══════════════════════════════════════════════════════
-//  RULES VIEW
-// ══════════════════════════════════════════════════════
-function renderRules(){
-  document.getElementById('rulesContent').innerHTML=`
-    <div class="rule-card">
-      <div class="rule-title">Progression</div>
-      <div class="rule-body">Double progression : <strong>atteindre le haut de la fourchette de reps sur toutes les séries</strong> avant d'augmenter la charge. Pas d'augmentation de charge si la fourchette n'est pas atteinte.</div>
-    </div>
-    <div class="rule-card">
-      <div class="rule-title">Top Set + Back-off</div>
-      <div class="rule-body">Sur les compound principaux (Smith, Chest Press, Pulldown, Iso Row, Hack Squat) : <strong>top set à effort maximal, back-off à 85–90% de la charge</strong> du top set.</div>
-    </div>
-    <div class="rule-card">
-      <div class="rule-title">Repos</div>
-      <div class="rule-body"><strong>Polyarticulaires : 2 min 30.</strong> Le timer est automatique quand tu coches une série compound.<br><br><strong>Isolations : 90 secondes.</strong> Timer automatique sur les séries d'isolation.</div>
-    </div>
-    <div class="rule-card">
-      <div class="rule-title">Intensité</div>
-      <div class="rule-body"><strong>Dernière série à 0 RIR</strong> (échec technique, pas mécanique).<br>Les autres séries à environ <strong>1 RIR</strong> — une rep dans le réservoir.</div>
-    </div>
-    <div class="rule-card">
-      <div class="rule-title">Deload</div>
-      <div class="rule-body">Toutes les <strong>6–8 semaines</strong>, ou si : sommeil dégradé, stagnation générale, douleurs articulaires, motivation en baisse.<br>Deload = 1 semaine à <strong>50–60% volume, RIR 3</strong>.</div>
-    </div>
-    <div class="rule-card">
-      <div class="rule-title">Points ouverts</div>
-      <div class="rule-body">
-        · <strong>Pec Deck vs Cable Fly</strong> — selon sensations après quelques semaines.<br>
-        · <strong>Volume bras</strong> — à ajuster si progression insuffisante.<br>
-        · <strong>Volume épaules latérales</strong> — 8 séries/semaine, à valider sur 8 semaines.<br>
-        · <strong>Hammer vs Life Fitness</strong> — selon sensations sur les machines disponibles.
-      </div>
-    </div>
-  `;
+function runDebug(){
+  const out=document.getElementById('debugOut');
+  out.style.display='block';
+  const keys=Object.keys(S.sessionLog);
+  let txt=`🗄 localStorage key: p70_v2\n`;
+  txt+=`📦 Sessions: ${keys.length}\n`;
+  txt+=`📈 progLog exercices: ${Object.keys(S.progLog).length}\n\n`;
+  if(!keys.length){txt+='⚠️ AUCUNE SESSION TROUVÉE\nLes données ne sont pas sauvegardées.\n';out.textContent=txt;return;}
+  keys.forEach(k=>{
+    const sess=S.sessionLog[k];
+    const exIds=Object.keys(sess.sets||{});
+    const td=exIds.reduce((a,id)=>a+(sess.sets[id]||[]).filter(s=>s.done).length,0);
+    const ts=exIds.reduce((a,id)=>a+(sess.sets[id]||[]).length,0);
+    txt+=`${k}\n  completed: ${sess.completed}\n  sets cochés: ${td}/${ts}\n  exercices: ${exIds.length}\n`;
+  });
+  if(Object.keys(S.progLog).length){
+    txt+=`\n📊 ProgLog:\n`;
+    Object.entries(S.progLog).forEach(([id,entries])=>{
+      txt+=`  ${id}: ${entries.length} entrée(s)\n`;
+      entries.slice(-2).forEach(e=>txt+=`    S${e.week} — ${e.w}kg×${e.r}\n`);
+    });
+  }
+  out.textContent=txt;
+  document.getElementById('debugBtn').textContent='Actualiser';
 }
 
-// ══════════════════════════════════════════════════════
-//  INIT
-// ══════════════════════════════════════════════════════
 document.getElementById('hdrWeek').textContent=`S${S.week}`;
-if(S.sessionActive&&S.sessionStart) startSessTimer();
+if(S.sessionActive&&S.sessionStart)startSessTimer();
 renderToday();
+renderPlan();
 </script>
 </body>
 </html>
